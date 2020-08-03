@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+/*angular material theme import*/
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+/*adding global styles for tags*/
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+
+    background-color: rgb(250, 250, 250);
+    padding: 0;
+    margin: 0;
+
+}
