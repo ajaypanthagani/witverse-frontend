@@ -10,8 +10,6 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HeaderComponent } from './header/header.component';
 
-/*material imports module*/
-import { MatImportsModule } from './material.imports.module';
 
 @NgModule({
   declarations: [
@@ -23,8 +21,7 @@ import { MatImportsModule } from './material.imports.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MatImportsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
