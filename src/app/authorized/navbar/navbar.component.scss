@@ -1,0 +1,32 @@
+.navbar{
+
+    display: flex;
+}
+
+.navbar-left-section, .navbar-center-section, .navbar-right-section{
+
+    flex: 1 1 auto;
+
+    display: flex;
+}
+
+.navbar-left-section{
+
+    justify-content: flex-start;
+}
+
+.navbar-center-section{
+
+    justify-content: center;
+}
+
+.navbar-right-section{
+
+    justify-content: flex-end;
+}
+
+.logo-text{
+
+    font-size: 1.5em;
+    font-family: 'Pacifico', cursive;
+}
