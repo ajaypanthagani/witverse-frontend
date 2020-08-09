@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
         
       ],
       isLiked : true,
-      isSaved : true
+      isSaved : false
   }
 
   ];

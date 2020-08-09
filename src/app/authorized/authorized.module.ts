@@ -25,7 +25,10 @@ import { QuoteComponent } from './quote/quote.component';
     HomeComponent, 
     ExploreComponent, 
     ProfileComponent, 
-    NavbarComponent, NaviconsComponent, NewsfeedComponent, QuoteComponent
+    NavbarComponent, 
+    NaviconsComponent, 
+    NewsfeedComponent, 
+    QuoteComponent
   ],
   imports: [
     CommonModule,

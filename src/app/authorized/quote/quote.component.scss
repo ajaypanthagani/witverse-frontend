@@ -1,16 +1,6 @@
-.card-header{
+.author-display-image{
 
-    align-items: center;    
-}
-
-.card-content{
-
-    align-items: center;
-}
-
-.card-content{
-    
-    align-items: center;
+    background-size: cover;
 }
 
 .flex{
@@ -18,42 +8,20 @@
     display: flex;
 }
 
-.left, .right{
+.word-wrap{
 
-    flex: 1 1 auto;
-    display: flex;
-}
-
-.left{
-
-    justify-content: flex-start;
-}
-
-.right{
-
-    justify-content: flex-end;
-}
-
-.header{
-    
-    flex: 1 1 auto;
-}
-
-.content{
-
-    font-size: 1.5em;
-    justify-content: center;
-    padding: 5px;
     word-wrap: break-word;
 }
 
-.footer{
+.spacer{
 
-    padding: 0 10px 0 10px;
-    font-size: 1em;
+    flex: 1 1 auto;
 }
 
-.author-display-image{
+.content-container{
 
-    background-size: cover;
+    font-size: 1.5em;
+    min-height: 20vh;
+    justify-content: center;
+    align-items: center;
 }

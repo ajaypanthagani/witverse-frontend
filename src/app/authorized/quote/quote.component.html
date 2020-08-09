@@ -1,96 +1,68 @@
 <mat-card>
-
-    <!-- header starts -->
     <mat-card-header>
+ 
+        <div class="author-display-image" mat-card-avatar [style.backgroundImage]=" 'url(' + quote.author.displayImage + ')' "></div>
+        <mat-card-title>{{quote.author.username}}</mat-card-title>
+        <mat-card-subtitle>{{quote.author.firstname}} {{quote.author.lastname}}</mat-card-subtitle>
 
-        <div class="header flex">
+        <!-- spacer starts -->
+        <span class="spacer"></span>
+        <!-- spacer ends -->
 
-            <span class="left">
-
-                <!-- author display image starts -->
-                <button class="author-display-image-button" mat-icon-button>
-                    <div class="author-display-image" mat-card-avatar [style.backgroundImage]="'url('+quote.author.displayImage+')'"></div>
-                </button>
-                <!-- author display image ends -->
-
-            </span>
-
-            <span class="right">
-
-                <!-- menu button starts -->
-                <button class="menu-button" mat-icon-button>
-                    <mat-icon class="menu-icon">more_vert</mat-icon>
-                </button>
-                <!-- menu button ends -->
-
-            </span>
-
-
-        </div>
+        <button mat-icon-button>
+            <mat-icon>more_horiz</mat-icon>
+        </button>
 
     </mat-card-header>
-    <!-- header ends -->
 
     <!-- mat divider starts -->
     <mat-divider></mat-divider>
     <!-- mat divider ends -->
 
-    <!-- content starts -->
     <mat-card-content>
-        <div class="content flex">
+        <p class="content-container flex word-wrap">
             {{quote.text}}
-        </div>
+        </p>
     </mat-card-content>
-    <!-- content ends -->
 
-    <!-- actions start -->
-    <mat-card-actions>
-        <div class="actions flex">
+    <!-- mat divider starts -->
+    <mat-divider></mat-divider>
+    <!-- mat divider ends -->
 
-            <!-- left section starts -->
-            <span class="left">
-                
-                <!-- like button starts -->
-                <button class="like-button" *ngIf="!(quote.isLiked)" mat-icon-button>
+    <mat-card-actions class="flex">
 
-                    <mat-icon class="like-icon" >favorite_border</mat-icon>
+        <!-- like/unlike button starts -->
+        <button mat-icon-button *ngIf="quote.isLiked">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button  *ngIf="!(quote.isLiked)">
+            <mat-icon>favorite_border</mat-icon>
+        </button>
+        <!-- like/unlike button ends -->
 
-                </button>
-                <button class="unlike-button" *ngIf="quote.isLiked" mat-icon-button>
+        <!-- comment button starts -->
+        <button mat-icon-button>
+            <mat-icon>comment</mat-icon>
+        </button>
+        <!-- comment button ends -->
 
-                    <mat-icon class="unlike-icon">favorite</mat-icon>
+        <!-- spacer starts -->
+        <span class="spacer"></span>
+        <!-- spacer ends -->
 
-                </button>
-                <!-- like button ends -->
+        <!-- share button starts -->
+        <button mat-icon-button>
+            <mat-icon>share</mat-icon>
+        </button>
+        <!-- share button ends -->
 
-                <!-- comment button starts -->
-                <button class="comment-icon" mat-icon-button>
-
-                    <mat-icon class="comment-icon">comment</mat-icon>
-
-                </button>
-                <!-- comment button ends -->
-            </span>
-            <!-- left section ends -->
-
-
-            <!-- right section starts -->
-            <span class="right">
-
-                <!-- save button starts -->
-                <button class="save-button" *ngIf="!(quote.isSaved)" mat-icon-button>
-                    <mat-icon class="save-icon">bookmark_border</mat-icon>
-                </button>
-                <button class="unsave-button" *ngIf="quote.isSaved" mat-icon-button>
-                    <mat-icon class="unsave-icon">bookmark</mat-icon>
-                </button>
-                <!-- save button ends -->
-
-            </span>
-            <!-- right section ends -->
-
-
-        </div>
+        <!-- save button starts -->
+        <button mat-icon-button *ngIf="quote.isSaved">
+            <mat-icon>bookmark</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="!(quote.isSaved)">
+            <mat-icon>bookmark_border</mat-icon>
+        </button>
+        <!-- save button ends -->
     </mat-card-actions>
-    <!-- actions end -->
 </mat-card>
