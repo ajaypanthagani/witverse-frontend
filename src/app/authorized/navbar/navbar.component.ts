@@ -10,6 +10,12 @@ export class NavbarComponent implements OnInit {
   @Input()
   color : string;
 
+  @Input()
+  sticky : boolean;
+
+  @Input()
+  elevate : boolean;
+
   constructor() { }
 
   ngOnInit(): void {

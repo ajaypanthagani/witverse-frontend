@@ -1,0 +1,41 @@
+.flex{
+
+    display: flex;
+}
+
+.flex-row{
+
+    flex-direction: row;
+}
+
+.flex-column{
+
+    flex-direction: column;
+}
+
+.spacer{
+
+    flex : 1 1 auto;
+}
+
+.user-display-image{
+
+    background-image: url('https://picsum.photos/id/111/4400/2656');
+    background-size: cover;
+}
+
+.quote-form-field, .quote-input-field{
+
+    width: 100%;
+    min-height: 10vh;
+}
+
+.quote-tags-field{
+
+    width: 100%;
+}
+
+.selected-emotion{
+
+    color : rgb(5, 51, 255);
+}

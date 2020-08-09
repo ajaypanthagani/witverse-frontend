@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { AuthorizedRoutingModule } from './authorized-routing.module';
 
+// form builder import
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /*material imports module*/
 import { MatImportsModule } from './mat-imports/mat-imports.module';
@@ -16,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NaviconsComponent } from './navicons/navicons.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { QuoteComponent } from './quote/quote.component';
+import { QuoteCreateComponent } from './quote-create/quote-create.component';
 
 
 
@@ -28,12 +31,20 @@ import { QuoteComponent } from './quote/quote.component';
     NavbarComponent, 
     NaviconsComponent, 
     NewsfeedComponent, 
-    QuoteComponent
+    QuoteComponent, 
+    QuoteCreateComponent
   ],
   imports: [
     CommonModule,
     AuthorizedRoutingModule,
-    MatImportsModule
+    MatImportsModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers : [
+
+    FormBuilder
+
   ]
 })
 export class AuthorizedModule { }
