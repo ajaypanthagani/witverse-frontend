@@ -14,6 +14,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NaviconsComponent } from './navicons/navicons.component';
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { QuoteComponent } from './quote/quote.component';
 
 
 
@@ -23,7 +25,7 @@ import { NaviconsComponent } from './navicons/navicons.component';
     HomeComponent, 
     ExploreComponent, 
     ProfileComponent, 
-    NavbarComponent, NaviconsComponent
+    NavbarComponent, NaviconsComponent, NewsfeedComponent, QuoteComponent
   ],
   imports: [
     CommonModule,

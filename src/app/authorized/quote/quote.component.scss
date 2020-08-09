@@ -1,0 +1,59 @@
+.card-header{
+
+    align-items: center;    
+}
+
+.card-content{
+
+    align-items: center;
+}
+
+.card-content{
+    
+    align-items: center;
+}
+
+.flex{
+
+    display: flex;
+}
+
+.left, .right{
+
+    flex: 1 1 auto;
+    display: flex;
+}
+
+.left{
+
+    justify-content: flex-start;
+}
+
+.right{
+
+    justify-content: flex-end;
+}
+
+.header{
+    
+    flex: 1 1 auto;
+}
+
+.content{
+
+    font-size: 1.5em;
+    justify-content: center;
+    padding: 5px;
+    word-wrap: break-word;
+}
+
+.footer{
+
+    padding: 0 10px 0 10px;
+    font-size: 1em;
+}
+
+.author-display-image{
+
+    background-size: cover;
+}
