@@ -1,9 +1,26 @@
 <div class="wrapper flex">
 
-    <div class="main">
+    <!-- main section starts -->
+    <div class="main full-width-sm">
 
-        <app-quote-create></app-quote-create>
+        <!-- quote create from starts -->
+        <app-quote-create class="quote-form"></app-quote-create>
+        <!-- quote create form -ends -->
+
+        <!-- newsfeed starts -->
         <app-newsfeed class="newsfeed" [quotes]="quotes" ></app-newsfeed>
+        <!-- newsfeed ends -->
+
     </div>
+    <!-- main section ends -->
+
+
+    <!-- sidebar section starts -->
+    <div class="sidebar hidden-sm">
+
+        <app-trending class="trends" [trends]="trends"></app-trending>
+
+    </div>
+    <!-- sidebar section ends -->
 
 </div>

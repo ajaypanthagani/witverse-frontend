@@ -20,49 +20,59 @@
     <!-- mat divider ends -->
 
     <mat-card-content>
+
+        <!-- quotation icon starts -->
+        <mat-icon class="quote-icon">format_quote</mat-icon>
+        <!-- quotation icon ends -->
+
         <p class="content-container flex word-wrap">
+            
             {{quote.text}}
+
         </p>
+
     </mat-card-content>
 
     <!-- mat divider starts -->
     <mat-divider></mat-divider>
     <!-- mat divider ends -->
 
-    <mat-card-actions class="flex">
+    <mat-card-actions>
 
-        <!-- like/unlike button starts -->
-        <button mat-icon-button *ngIf="quote.isLiked">
-            <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button  *ngIf="!(quote.isLiked)">
-            <mat-icon>favorite_border</mat-icon>
-        </button>
-        <!-- like/unlike button ends -->
+        <div class="flex">
+            <!-- like/unlike button starts -->
+            <button mat-icon-button *ngIf="quote.isLiked">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button  *ngIf="!(quote.isLiked)">
+                <mat-icon>favorite_border</mat-icon>
+            </button>
+            <!-- like/unlike button ends -->
 
-        <!-- comment button starts -->
-        <button mat-icon-button>
-            <mat-icon>comment</mat-icon>
-        </button>
-        <!-- comment button ends -->
+            <!-- comment button starts -->
+            <button mat-icon-button>
+                <mat-icon>comment</mat-icon>
+            </button>
+            <!-- comment button ends -->
 
-        <!-- spacer starts -->
-        <span class="spacer"></span>
-        <!-- spacer ends -->
+            <!-- spacer starts -->
+            <span class="spacer"></span>
+            <!-- spacer ends -->
 
-        <!-- share button starts -->
-        <button mat-icon-button>
-            <mat-icon>share</mat-icon>
-        </button>
-        <!-- share button ends -->
+            <!-- share button starts -->
+            <button mat-icon-button>
+                <mat-icon>share</mat-icon>
+            </button>
+            <!-- share button ends -->
 
-        <!-- save button starts -->
-        <button mat-icon-button *ngIf="quote.isSaved">
-            <mat-icon>bookmark</mat-icon>
-        </button>
-        <button mat-icon-button *ngIf="!(quote.isSaved)">
-            <mat-icon>bookmark_border</mat-icon>
-        </button>
-        <!-- save button ends -->
+            <!-- save button starts -->
+            <button mat-icon-button *ngIf="quote.isSaved">
+                <mat-icon>bookmark</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="!(quote.isSaved)">
+                <mat-icon>bookmark_border</mat-icon>
+            </button>
+            <!-- save button ends -->
+        </div>
     </mat-card-actions>
 </mat-card>

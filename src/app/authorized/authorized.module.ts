@@ -20,6 +20,10 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteCreateComponent } from './quote-create/quote-create.component';
 
+// services imports
+import { QuoteService } from './services/quote.service';
+import { TrendingComponent } from './trending/trending.component';
+
 
 
 @NgModule({
@@ -32,7 +36,7 @@ import { QuoteCreateComponent } from './quote-create/quote-create.component';
     NaviconsComponent, 
     NewsfeedComponent, 
     QuoteComponent, 
-    QuoteCreateComponent
+    QuoteCreateComponent, TrendingComponent
   ],
   imports: [
     CommonModule,
@@ -43,8 +47,9 @@ import { QuoteCreateComponent } from './quote-create/quote-create.component';
   ],
   providers : [
 
-    FormBuilder
-
+    FormBuilder,
+    QuoteService
+    
   ]
 })
 export class AuthorizedModule { }

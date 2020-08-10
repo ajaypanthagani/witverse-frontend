@@ -64,6 +64,10 @@ export class QuoteCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    //initializing form data
+    this.init();
+
   }
 
   // form creation function
@@ -168,16 +172,38 @@ export class QuoteCreateComponent implements OnInit {
 
     const data = this.form.value;
 
-    console.log(data);
+    // logic to check if update or create
+    if(this.quote){
+
+      console.log('put', data);
+  
+    }
+    else{
+
+      console.log('post', data);
+    }
 
     this.clear(this.form);
     
   }
   // submit function ends
 
+  // clear function starts
   clear(form){
 
     form.reset();
 
+  }
+
+  // function to initialize form data if quote as input is given
+  init(){
+
+    if(this.quote){
+
+      this.form.controls['text'].setValue(this.quote.text);
+      this.form.controls['emotion'].setValue(this.quote.emotion);
+      this.form.controls['tags'].setValue(this.quote.tags);
+
+    }
   }
 }

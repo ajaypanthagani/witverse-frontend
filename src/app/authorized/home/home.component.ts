@@ -45,6 +45,21 @@ export class HomeComponent implements OnInit {
 
   ];
 
+  trends = [
+    {
+      content : 'happy',
+      density : 1000
+    },
+    {
+      content : 'journey',
+      density : 500
+    },
+    {
+      content : 'covid19',
+      density : 980
+    }
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

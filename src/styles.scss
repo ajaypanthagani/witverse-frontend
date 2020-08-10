@@ -18,3 +18,44 @@ body{
     margin: 0;
 
 }
+
+//global  classes
+.flex{
+
+    display: flex;
+}
+
+.flex-row{
+
+    flex-direction: row;
+}
+
+.flex-column{
+
+    flex-direction: column;
+}
+
+.spacer{
+
+    flex : 1 1 auto;
+}
+
+.gap{
+
+    min-height: 5vh;
+}
+
+//responsive classes
+@media screen and (max-width : 740px){
+
+    .hidden-sm{
+
+        display: none;
+    }
+
+    .full-width-sm{
+
+        width: 100%;
+        flex : 1 1 auto;
+    }
+}

@@ -31,7 +31,10 @@
             <!-- quote tags starts -->
             <p>
                 <mat-form-field class="quote-tags-field">
-                    <mat-chip-list #chipList aria-label="tag selection">
+                    <mat-chip-list 
+                        #chipList 
+                        aria-label="tag selection"
+                        formControlName="tags">
                     <mat-chip *ngFor="let tag of form.get('tags').value" 
                         [selectable]="true"
                         [removable]="true" 
@@ -50,44 +53,46 @@
                             (matChipInputTokenEnd)="addTag($event)"
                             autocomplete="off">
                     </mat-chip-list>
+                    <mat-error *ngIf="form.invalid">{{errors.tags}}</mat-error>
                 </mat-form-field>
-                <mat-error *ngIf="form.invalid">{{errors.tags}}</mat-error>
             </p>
             <!-- quote tags end -->
 
         </form>
 
     </mat-card-content>
-    <mat-card-actions class="flex">
+    <mat-card-actions>
 
-        <!-- emotions container start -->
-        <div class="emotions">
+        <div class="flex">
+            <!-- emotions container start -->
+            <div class="emotions">
 
-            <button class="happy-button" mat-icon-button (click)="selectEmotion('happy')">
-                <mat-icon class="happy-icon" [class.selected-emotion]="isEmotion('happy')">sentiment_very_satisfied</mat-icon>
-            </button>
-            <button class="sad-button" mat-icon-button (click)="selectEmotion('sad')">
-                <mat-icon class="sad-icon" [class.selected-emotion]="isEmotion('sad')">sentiment_very_dissatisfied</mat-icon>
-            </button>
-            <button class="neutral-button" mat-icon-button (click)="selectEmotion('neutral')">
-                <mat-icon class="neutral-icon" [class.selected-emotion]="isEmotion('neutral')">sentiment_satisfied</mat-icon>
-            </button>
-            <mat-error *ngIf="form.invalid">{{errors.emotion}}</mat-error>
-            
+                <button class="happy-button" mat-icon-button (click)="selectEmotion('happy')">
+                    <mat-icon class="happy-icon" [class.selected-emotion]="isEmotion('happy')">sentiment_very_satisfied</mat-icon>
+                </button>
+                <button class="sad-button" mat-icon-button (click)="selectEmotion('sad')">
+                    <mat-icon class="sad-icon" [class.selected-emotion]="isEmotion('sad')">sentiment_very_dissatisfied</mat-icon>
+                </button>
+                <button class="neutral-button" mat-icon-button (click)="selectEmotion('neutral')">
+                    <mat-icon class="neutral-icon" [class.selected-emotion]="isEmotion('neutral')">sentiment_satisfied</mat-icon>
+                </button>
+                <mat-error *ngIf="form.invalid">{{errors.emotion}}</mat-error>
+                
+            </div>
+            <!-- emotions container ends -->
+
+            <span class="spacer"></span>
+
+            <!-- send container starts -->
+            <div class="send">
+
+                <button class="send-button" [disabled]="form.invalid" mat-icon-button (click)="submit()">
+                    <mat-icon class="send-icon">send</mat-icon>
+                </button>
+
+            </div>
+            <!-- send container ends -->
         </div>
-        <!-- emotions container ends -->
-
-        <span class="spacer"></span>
-
-        <!-- send container starts -->
-        <div class="send">
-
-            <button class="send-button" [disabled]="form.invalid" mat-icon-button (click)="submit()">
-                <mat-icon class="send-icon">send</mat-icon>
-            </button>
-
-        </div>
-        <!-- send container ends -->
 
     </mat-card-actions>
 </mat-card>
