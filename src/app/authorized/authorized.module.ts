@@ -10,7 +10,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuoteService } from './services/quote.service';
 
 /*material imports module*/
-import { MatImportsModule } from './mat-imports/mat-imports.module';
+import { MatImportsModule } from '../mat-imports/mat-imports.module';
 
 /*component imports*/
 import { AuthorizedComponent } from './authorized.component';

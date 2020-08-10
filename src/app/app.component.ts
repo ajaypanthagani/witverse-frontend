@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ConnectionService } from './services/connection.service';
 
 @Component({
@@ -8,7 +7,9 @@ import { ConnectionService } from './services/connection.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   title = 'witverse-angular';
+  connected : boolean;
 
   constructor(private connection : ConnectionService){
 
@@ -21,12 +22,8 @@ export class AppComponent implements OnInit {
 
         (status) => {
 
-          if(status){
-            console.log('connected');
-          }
-          else{
-            console.log('disconnected');
-          }
+          this.connected = status;
+          
         }
       );
 

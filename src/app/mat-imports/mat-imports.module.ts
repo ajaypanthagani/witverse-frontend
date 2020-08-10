@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatInputModule,
     MatFormFieldModule,
     MatChipsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressBarModule
   ],
   exports : [
     MatToolbarModule,
@@ -36,7 +38,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatInputModule,
     MatFormFieldModule,
     MatChipsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressBarModule
   ]
 })
 export class MatImportsModule { }
