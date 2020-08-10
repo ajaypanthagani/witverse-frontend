@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
         username : 'apanthagani',
         firstname : 'Ajay',
         lastname : 'Panthagani',
-        displayImage : 'https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y',
+        displayImage : 'https://picsum.photos/id/1001/367/267',
         following : [],
         followers : [],
         createdAt : Date.now(),

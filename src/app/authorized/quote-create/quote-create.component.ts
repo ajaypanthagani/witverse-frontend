@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 //keycodes import
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {COMMA, ENTER, SPACE} from '@angular/cdk/keycodes';
 
 
 // form builder import
@@ -54,7 +54,7 @@ export class QuoteCreateComponent implements OnInit {
   };
 
   //seperator keys
-  tagSeperatorKeys = [ COMMA, ENTER]
+  tagSeperatorKeys = [ COMMA, ENTER, SPACE]
 
   constructor(private formBuilder : FormBuilder) { 
 

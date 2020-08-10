@@ -6,6 +6,9 @@ import { AuthorizedRoutingModule } from './authorized-routing.module';
 // form builder import
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// services imports
+import { QuoteService } from './services/quote.service';
+
 /*material imports module*/
 import { MatImportsModule } from './mat-imports/mat-imports.module';
 
@@ -19,10 +22,9 @@ import { NaviconsComponent } from './navicons/navicons.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteCreateComponent } from './quote-create/quote-create.component';
-
-// services imports
-import { QuoteService } from './services/quote.service';
 import { TrendingComponent } from './trending/trending.component';
+
+
 
 
 
@@ -36,7 +38,8 @@ import { TrendingComponent } from './trending/trending.component';
     NaviconsComponent, 
     NewsfeedComponent, 
     QuoteComponent, 
-    QuoteCreateComponent, TrendingComponent
+    QuoteCreateComponent, 
+    TrendingComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +51,7 @@ import { TrendingComponent } from './trending/trending.component';
   providers : [
 
     FormBuilder,
-    QuoteService
+    QuoteService,
     
   ]
 })

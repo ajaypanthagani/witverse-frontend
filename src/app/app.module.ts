@@ -5,8 +5,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 
+// rxjs import
+import { Observable } from 'rxjs';
+
+
 // http module import
 import { HttpClientModule } from '@angular/common/http';
+
+
+// services imports
+import { ConnectionService } from './services/connection.service';
 
 
 /*components imports*/
@@ -23,9 +31,11 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    ConnectionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
