@@ -6,8 +6,65 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- internal css for linit loader starts -->
+  <style>
+
+    .initloader{
+
+      position : absolute;
+      height: 100vh;
+      width: 100vw;
+
+    }
+
+    .initloader-logo{
+
+      display: block;
+
+      width: 300px;
+
+    }
+
+    .initloader-background{
+
+      background-color: #3f51b5;
+
+    }
+
+    .flex{
+
+      display: flex;
+
+    }
+
+    .justify-center{
+
+      justify-content: center;
+
+    }
+
+    .align-center{
+
+      align-items: center;
+    }
+
+
+  </style>
+  <!-- internal css for init loader ends -->
+
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+
+    <!-- initloader starts -->
+    <div class="initloader flex justify-center align-center initloader-background">
+
+      <img src="./assets/images/logos/witverse-transparent.png" alt="witverse" class="initloader-logo">
+
+    </div>
+    <!-- initloader ends -->
+
+  </app-root>
 </body>
 </html>

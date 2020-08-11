@@ -14,15 +14,34 @@
 
     <mat-card-content>
         
-        <ul>
+        <ul class="trends-list">
+
             <li *ngFor="let trend of trends">
 
-                <h3>{{trend.content}}</h3>
-                <small> {{trend.density}} posts</small>
+                <div class="flex">
+
+                    <h4> {{trend.content}} </h4>
+
+                    <span class="spacer"></span>
+
+                    <h4>{{trend.density}}</h4>
+
+                </div>
 
             </li>
         </ul>
         
     </mat-card-content>
 
+    <mat-divider></mat-divider>
+    
+    <mat-card-footer>
+
+        <span class="footer-text flex">
+            
+            <small>&copy; 2020 witverse</small>
+
+        </span>
+
+    </mat-card-footer>
 </mat-card>
