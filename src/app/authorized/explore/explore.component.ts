@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-explore',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExploreComponent implements OnInit {
 
-  constructor() { }
+  data : any;
+
+  constructor(private search : SearchService) { 
+
+    this.search.emmit().subscribe(
+      (data) => {
+
+        this.data = data;
+        
+      }
+    )
+  }
 
   ngOnInit(): void {
   }

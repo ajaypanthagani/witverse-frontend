@@ -1,0 +1,20 @@
+
+
+<form [formGroup]="searchForm">
+
+  <mat-form-field class="search-form-field" appearance="outline">
+    <mat-label>Search</mat-label>
+
+    <input class="search-input-field" matInput placeholder="search & explore" formControlName="searchValue">
+
+      <!-- clear me button -->
+    <button mat-icon-button class="clear-button" *ngIf="searchForm.get('searchValue').value" matSuffix mat-icon-button aria-label="Clear" (click)="reset()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <!-- clear me button -->
+
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-hint> use '@' prefix to search for users</mat-hint>
+  </mat-form-field>
+
+</form>

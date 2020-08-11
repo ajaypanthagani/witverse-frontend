@@ -8,6 +8,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // services imports
 import { QuoteService } from './services/quote.service';
+import { SearchService } from './services/search.service';
 
 /*material imports module*/
 import { MatImportsModule } from '../mat-imports/mat-imports.module';
@@ -23,6 +24,7 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteCreateComponent } from './quote-create/quote-create.component';
 import { TrendingComponent } from './trending/trending.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -39,7 +41,7 @@ import { TrendingComponent } from './trending/trending.component';
     NewsfeedComponent, 
     QuoteComponent, 
     QuoteCreateComponent, 
-    TrendingComponent
+    TrendingComponent, SearchComponent
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { TrendingComponent } from './trending/trending.component';
 
     FormBuilder,
     QuoteService,
+    SearchService
     
   ]
 })
