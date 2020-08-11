@@ -1,0 +1,36 @@
+<div class="flex justify-center">
+
+    <div class="search-results-wrapper">
+
+        <div class="user-result" *ngIf="users">
+
+            <mat-card class="result" *ngFor="let user of users">
+
+                <mat-card-header>
+
+                    <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url('+ user.displayImage +')'"></div>
+
+                    <mat-card-title>{{user.username}}</mat-card-title>
+                    <mat-card-subtitle>{{user.firstname}} {{user.lastname}}</mat-card-subtitle>
+
+
+                    <span class="spacer"></span>
+
+                    <div class="follo-buttons">
+
+                        <button mat-button color="primary" *ngIf="!user.isFollowed">follow</button>
+
+                        <button mat-button color="warn" *ngIf="user.isFollowed">unfollow</button>
+
+                    </div>
+
+
+                </mat-card-header>
+
+            </mat-card>
+
+        </div>
+
+    </div>
+
+</div>

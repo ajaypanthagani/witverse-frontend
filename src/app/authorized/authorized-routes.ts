@@ -6,6 +6,7 @@ import { AuthorizedComponent } from './authorized.component';
 import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 export const routes: Routes = [
 
@@ -20,7 +21,14 @@ export const routes: Routes = [
             },
             {
                 path : "explore",
-                component : ExploreComponent
+                component : ExploreComponent,
+                children : [
+
+                    {
+                        path : "search",
+                        component : SearchResultComponent
+                    }
+                ]
             },
             {
                 path : "profile",

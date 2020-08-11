@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { SearchService } from '../services/search.service';
 
 @Component({
@@ -8,14 +10,23 @@ import { SearchService } from '../services/search.service';
 })
 export class ExploreComponent implements OnInit {
 
-  data : any;
+  searchValue : any;
 
-  constructor(private search : SearchService) { 
+  constructor(private search : SearchService, private router : Router, private route : ActivatedRoute) { 
 
     this.search.emmit().subscribe(
       (data) => {
 
-        this.data = data;
+        if(data){
+
+          this.router.navigate(['search'], {relativeTo : this.route});
+
+        }
+        else{
+
+          this.router.navigate(['./'], {relativeTo : this.route});
+          
+        }
         
       }
     )

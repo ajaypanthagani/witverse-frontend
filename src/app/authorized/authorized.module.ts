@@ -25,6 +25,8 @@ import { QuoteComponent } from './quote/quote.component';
 import { QuoteCreateComponent } from './quote-create/quote-create.component';
 import { TrendingComponent } from './trending/trending.component';
 import { SearchComponent } from './search/search.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { ExploreGridComponent } from './explore-grid/explore-grid.component';
 
 
 
@@ -41,7 +43,7 @@ import { SearchComponent } from './search/search.component';
     NewsfeedComponent, 
     QuoteComponent, 
     QuoteCreateComponent, 
-    TrendingComponent, SearchComponent
+    TrendingComponent, SearchComponent, SearchResultComponent, ExploreGridComponent
   ],
   imports: [
     CommonModule,
