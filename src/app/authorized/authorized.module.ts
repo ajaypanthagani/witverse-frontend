@@ -6,6 +6,9 @@ import { AuthorizedRoutingModule } from './authorized-routing.module';
 // form builder import
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// external service imports
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 // services imports
 import { QuoteService } from './services/quote.service';
 import { SearchService } from './services/search.service';
@@ -43,14 +46,18 @@ import { ExploreGridComponent } from './explore-grid/explore-grid.component';
     NewsfeedComponent, 
     QuoteComponent, 
     QuoteCreateComponent, 
-    TrendingComponent, SearchComponent, SearchResultComponent, ExploreGridComponent
+    TrendingComponent, 
+    SearchComponent, 
+    SearchResultComponent, 
+    ExploreGridComponent
   ],
   imports: [
     CommonModule,
     AuthorizedRoutingModule,
     MatImportsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   providers : [
 

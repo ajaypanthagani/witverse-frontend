@@ -1,4 +1,9 @@
 
+.search-results-wrapper{
+
+    width: 50%;
+}
+
 .result{
 
     margin: 5px 0 5px 0;
@@ -8,4 +13,10 @@
 .user-display-image{
 
     background-size: cover;
+}
+
+.loader{
+
+    min-height: 30vh;
+    min-width: 30vw;
 }

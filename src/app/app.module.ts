@@ -18,6 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
 // services imports
 import { ConnectionService } from './services/connection.service';
 
+// importing ngx spinner external module
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 /*components imports*/
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './general/not-found/not-found.component';
@@ -35,7 +38,8 @@ import { NoNetworkComponent } from './general/no-network/no-network.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatImportsModule
+    MatImportsModule,
+    NgxSpinnerModule
   ],
   providers: [
     ConnectionService

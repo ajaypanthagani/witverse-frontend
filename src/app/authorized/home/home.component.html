@@ -12,7 +12,7 @@
         <!-- quote create form -ends -->
 
         <!-- newsfeed starts -->
-        <app-newsfeed class="newsfeed" [quotes]="quotes" ></app-newsfeed>
+        <app-newsfeed *ngIf="quotes" class="newsfeed" [quotes]="quotes" ></app-newsfeed>
         <!-- newsfeed ends -->
 
     </div>
@@ -22,7 +22,7 @@
     <!-- sidebar section starts -->
     <div class="sidebar hidden-sm">
 
-        <app-trending class="trends" [trends]="trends"></app-trending>
+        <app-trending *ngIf="trends" class="trends" [trends]=""></app-trending>
 
     </div>
     <!-- sidebar section ends -->

@@ -1,3 +1,6 @@
+//custom font style
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 /*angular material theme import*/
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
@@ -45,6 +48,15 @@ body{
     min-height: 3vh;
 }
 
+.pos-relative{
+
+    position: relative;
+}
+.pos-absolute{
+
+    position: absolute;
+}
+
 //responsive classes
 @media screen and (max-width : 740px){
 
@@ -54,8 +66,7 @@ body{
     }
 
     .full-width-sm{
-
-        width: 100%;
+        
         flex : 1 1 auto;
     }
 }

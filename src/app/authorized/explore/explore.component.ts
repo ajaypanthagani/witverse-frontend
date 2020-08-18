@@ -10,8 +10,6 @@ import { SearchService } from '../services/search.service';
 })
 export class ExploreComponent implements OnInit {
 
-  searchValue : any;
-
   constructor(private search : SearchService, private router : Router, private route : ActivatedRoute) { 
 
     this.search.emmit().subscribe(
@@ -19,7 +17,20 @@ export class ExploreComponent implements OnInit {
 
         if(data){
 
-          this.router.navigate(['search'], {relativeTo : this.route});
+          // resource type checking
+          const startingchar = data[0];
+
+          const type = startingchar === '@' ? 'users' : 'quotes';
+
+          // if type equals users remove '@' symbol prefixed
+          if(type==='users'){
+
+            data = data.slice(1,);
+
+          }
+
+
+          this.router.navigate(['search'], {queryParams : {resource : type, query : data}, relativeTo : this.route});
 
         }
         else{
