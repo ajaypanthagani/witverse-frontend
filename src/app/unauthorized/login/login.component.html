@@ -1,0 +1,72 @@
+<div class="login-wrapper flex">
+
+    <div [class.mat-elevation-z2]="true" class="login">
+
+        <h4>Login</h4>
+
+        <form class="login-form" [formGroup]="form">
+
+            <div class="loader pos-relative">
+
+                <ngx-spinner
+                bdColor="none"
+                [fullScreen]="false"
+                size="medium"
+                color="#3f51b5"
+                type="ball-scale-multiple">
+    
+                </ngx-spinner>
+                
+            </div>
+
+            <p>
+                <mat-form-field class="username-form-field" appearance="outline">
+                    <mat-label>Username</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="username-input-field" 
+                        matInput 
+                        placeholder="username" 
+                        autocomplete="off" 
+                        formControlName="username"
+                        type="text">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-hint>enter username here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.username}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="password-form-field" appearance="outline">
+                    <mat-label>password</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="password-input-field" 
+                        matInput 
+                        placeholder="password" 
+                        autocomplete="off" 
+                        formControlName="password"
+                        type="password">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>fingerprint</mat-icon>
+                    <mat-hint>enter password here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.password}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <button [disabled]="form.invalid" mat-raised-button color="primary" class="login-button" (click)="submit()">login</button>
+            <small class="success-message">{{response.message}}</small>
+            <small class="error-message">{{response.error}}</small>
+        </form>
+
+        <button class="register-link" color="primary" mat-button routerLink="../register">click here to register</button>
+
+
+    </div>
+
+</div>

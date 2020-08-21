@@ -1,0 +1,43 @@
+.login-wrapper{
+
+    justify-content: center;
+}
+
+.login{
+
+    background-color: rgb(255, 255, 255);
+    padding : 5% 10% 5% 10%;
+    box-shadow: 5px #333;
+    border-radius: 5px;
+}
+
+.logo-text{
+
+    font-size: 30px;
+}
+
+.login-button{
+
+    width: 100%;
+}
+
+.success-message{
+
+    color : rgb(9, 7, 136);
+}
+
+.error-message{
+
+    color: rgb(206, 4, 4);
+}
+
+.register-link{
+
+    margin: 5px;
+    width: 100%;
+}
+
+.loader{
+
+    height: 20px;
+}

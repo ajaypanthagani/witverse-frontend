@@ -1,6 +1,6 @@
 export const urls = {
 
-    base_url : 'localhost:3000',
+    base_url : 'http://localhost:3000',
 
     quotes : '/quotes',
 
@@ -9,6 +9,10 @@ export const urls = {
     quote : '/quotes/{quote-id}',
 
     comment : '/comments/{quote-id}/{comment-id}',
+
+    users : '/users',
+
+    user : '/users/{user-id}',
 
     likes : {
 
@@ -26,5 +30,12 @@ export const urls = {
         quotesrange : '/infinite/quotes/{starting-id}/{limit}',
 
         commentsrange : '/infinite/comments/{starting-id}/{limit}'
+    },
+
+    auth : {
+
+        login : '/auth/login',
+        register : '/auth/users',
+        user : '/auth/user'
     }
 }

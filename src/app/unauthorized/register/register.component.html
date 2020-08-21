@@ -1,0 +1,111 @@
+<div class="register-wrapper flex">
+
+    <div [class.mat-elevation-z2]="true" class="register">
+
+        <h4>Register</h4>
+
+        <form class="register-form" [formGroup]="form">
+
+            <div class="loader pos-relative">
+
+                <ngx-spinner
+                bdColor="none"
+                [fullScreen]="false"
+                size="medium"
+                color="#3f51b5"
+                type="ball-scale-multiple">
+    
+                </ngx-spinner>
+    
+            </div>
+
+            <p>
+                <mat-form-field class="firstname-form-field" appearance="outline">
+                    <mat-label>Firstname</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="firstname-input-field" 
+                        matInput 
+                        placeholder="firstname" 
+                        autocomplete="off" 
+                        formControlName="firstname"
+                        type="text">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>looks_one</mat-icon>
+                    <mat-hint>enter firstname here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.firstname}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="lastname-form-field" appearance="outline">
+                    <mat-label>lastname</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="lastname-input-field" 
+                        matInput 
+                        placeholder="lastname" 
+                        autocomplete="off" 
+                        formControlName="lastname"
+                        type="text">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>looks_two</mat-icon>
+                    <mat-hint>enter lastname here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.lastname}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="username-form-field" appearance="outline">
+                    <mat-label>Username</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="username-input-field" 
+                        matInput 
+                        placeholder="username" 
+                        autocomplete="off" 
+                        formControlName="username"
+                        type="text">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-hint>enter username here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.username}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="password-form-field" appearance="outline">
+                    <mat-label>password</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="password-input-field" 
+                        matInput 
+                        placeholder="password" 
+                        autocomplete="off" 
+                        formControlName="password"
+                        type="password">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>fingerprint</mat-icon>
+                    <mat-hint>enter password here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.password}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <button [disabled]="form.invalid" mat-raised-button color="primary" class="register-button" (click)="submit()">register</button>
+            <small class="success-message">{{response.message}}</small>
+            <small class="error-message">{{response.error}}</small>
+        </form>
+
+        <button class="login-link" color="primary" mat-button routerLink="../login">click here to login</button>
+
+    </div>
+
+</div>
