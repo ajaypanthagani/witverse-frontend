@@ -4,6 +4,11 @@ import { AuthService } from '../../services/auth.service';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 
+import { StorageService } from '../../services/storage.service';
+import { DataService } from '../../services/data.service';
+
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -43,7 +48,13 @@ export class LoginComponent implements OnInit {
 
   }
 
-  constructor(private fb : FormBuilder, private auth : AuthService, private spinner : NgxSpinnerService) { }
+  constructor(
+    private fb : FormBuilder, 
+    private auth : AuthService, 
+    private spinner : NgxSpinnerService,
+    private storage : StorageService,
+    private data : DataService,
+    private router : Router) { }
 
   ngOnInit(): void {
 
@@ -86,7 +97,7 @@ export class LoginComponent implements OnInit {
 
   submit(){
 
-    this.spinner.show();
+    this.spinner.show("login-loader");
 
     this.response.message = '';
     this.response.error = '';
@@ -97,11 +108,26 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (response : any) => {
 
-          console.log(response);
-
           this.response.message = response.message;
 
-          this.spinner.hide();
+          this.storage.set('token', response.token);
+
+          //bootstrap auth function goes here
+          this.auth.bootstrapAuth()
+            .subscribe(
+              (success) => {
+
+                this.router.navigate(['a']);
+                this.spinner.hide("login-loader");
+
+              },
+              (error) => {
+
+                this.response.message = 'couldn\'t log you in';
+                this.spinner.hide("login-loader");
+                
+              }
+            )
 
         },
         (error) => {
@@ -109,7 +135,7 @@ export class LoginComponent implements OnInit {
           console.log(error);
           this.response.error = 'invalid username or password';
 
-          this.spinner.hide();
+          this.spinner.hide("login-loader");
         }
       );
     

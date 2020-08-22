@@ -6,17 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 // mat imports module
-
 import { MatImportsModule } from './mat-imports/mat-imports.module';
 
 // rxjs import
 import { Observable } from 'rxjs';
 
 // http module import
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // services imports
 import { ConnectionService } from './services/connection.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService, UnauthGuardService } from './services/auth-guard.service';
+import { StorageService } from './services/storage.service';
+import { DataService } from './services/data.service';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { AuthWatchInterceptor } from './services/auth.interceptor';
 
 // importing ngx spinner external module
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -42,7 +47,22 @@ import { NoNetworkComponent } from './general/no-network/no-network.component';
     NgxSpinnerModule
   ],
   providers: [
-    ConnectionService
+    ConnectionService,
+    DataService,
+    AuthService,
+    StorageService,
+    AuthGuardService,
+    UnauthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthWatchInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

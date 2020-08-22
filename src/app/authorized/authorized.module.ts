@@ -64,7 +64,7 @@ import { ExploreGridComponent } from './explore-grid/explore-grid.component';
     FormBuilder,
     QuoteService,
     SearchService
-    
+
   ]
 })
 export class AuthorizedModule { }

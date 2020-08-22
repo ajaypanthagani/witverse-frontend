@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataService } from '../../services/data.service';
+import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user : any;
+
+  constructor(private data : DataService, public auth : AuthService){
+
+    this.user = this.data.getUser();
+    
+  }
 
   ngOnInit(): void {
+    
   }
 
 }

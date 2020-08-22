@@ -1,2 +1,11 @@
 <app-no-network *ngIf="!connected"></app-no-network>
+<ngx-spinner
+bdColor="#3f51b5"
+[fullScreen]="false"
+name="boot-loader"
+size="large"
+color="#fff"
+type="line-scale-pulse-out">
+<h4 class="init-text">booting</h4>
+</ngx-spinner>
 <router-outlet></router-outlet>
