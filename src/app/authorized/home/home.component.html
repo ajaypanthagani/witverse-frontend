@@ -12,7 +12,7 @@
         <!-- quote create form -ends -->
 
         <!-- newsfeed starts -->
-        <app-newsfeed *ngIf="quotes" class="newsfeed" [quotes]="quotes" ></app-newsfeed>
+        <app-newsfeed *ngIf="data.quotes.length > 0" class="newsfeed" [quotes]="data.quotes" ></app-newsfeed>
         <!-- newsfeed ends -->
 
     </div>

@@ -36,7 +36,7 @@ export class QuoteService {
   getRange(id, n){
 
     const url = urls.base_url + urls.infinite.quotesrange
-    .replace('{quote-id}', '' + id)
+    .replace('{starting-id}', '' + id)
     .replace('{limit}', '' + n);
 
     return this.http.get(url);

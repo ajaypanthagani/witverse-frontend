@@ -8,6 +8,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // external service imports
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 // services imports
 import { QuoteService } from './services/quote.service';
@@ -57,7 +58,8 @@ import { ExploreGridComponent } from './explore-grid/explore-grid.component';
     MatImportsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    InfiniteScrollModule
   ],
   providers : [
 

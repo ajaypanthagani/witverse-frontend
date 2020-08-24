@@ -132,7 +132,6 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
 
-          console.log(error);
           this.response.error = 'invalid username or password';
 
           this.spinner.hide("login-loader");

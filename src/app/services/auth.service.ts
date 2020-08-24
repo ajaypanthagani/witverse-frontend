@@ -41,7 +41,7 @@ export class AuthService {
 
     this.setAuthStatus(false);
     this.storage.clear();
-    this.data.user = null;
+    this.data.destroy();
     this.router.navigate(['u']);
     
   }
@@ -65,24 +65,6 @@ export class AuthService {
   //helper functions
   bootstrapAuth(){
 
-    // this.authUser()
-    //       .subscribe(
-
-    //         (user) => {
-
-    //           this.data.setUser(user);
-
-    //           this.setAuthStatus(true);
-
-    //           this.router.navigate(['a']);
-    //         },
-
-    //         (error) => {
-
-    //           this.storage.clear();
-    //         }
-    //       )
-    
     return this.authUser()
       .pipe(
         map( user => {

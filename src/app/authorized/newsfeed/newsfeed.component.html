@@ -1,10 +1,28 @@
-<div class="newsfeed">
+<div 
+class="newsfeed"
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="50"
+(scrolled)="fetchQuotes(quotes[quotes.length-1]._id, 5)">
 
     <!-- quote starts -->
 
     <div class="quote-container" *ngFor="let quote of quotes">
 
         <app-quote class="quote" [quote]="quote"></app-quote>
+
+    </div>
+    <div *ngIf="processing" class="quote-loader-container pos-relative">
+
+        <ngx-spinner
+            bdColor="none"
+            [fullScreen]="false"
+            name="quote-loader"
+            size="medium"
+            color="#3f51b5"
+            type="ball-scale-multiple">
+
+        </ngx-spinner>
 
     </div>
 

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { QuoteService } from '../services/quote.service';
+import { DataService } from '../../services/data.service';
 
 //keycodes import
 import {COMMA, ENTER, SPACE} from '@angular/cdk/keycodes';
@@ -56,7 +58,10 @@ export class QuoteCreateComponent implements OnInit {
   //seperator keys
   tagSeperatorKeys = [ COMMA, ENTER, SPACE]
 
-  constructor(private formBuilder : FormBuilder) { 
+  constructor(
+    private formBuilder : FormBuilder, 
+    private quoteService : QuoteService,
+    private data : DataService) { 
 
     //creating reactive form
     this.createForm();
@@ -180,7 +185,16 @@ export class QuoteCreateComponent implements OnInit {
     }
     else{
 
-      console.log('post', data);
+      this.quoteService.post(data)
+      .subscribe(
+
+        (quote) => {
+
+          console.log(quote);
+          
+          this.data.insertQuotes([quote]);
+        }
+      )
     }
 
     this.clear(this.form);
