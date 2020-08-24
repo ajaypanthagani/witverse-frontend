@@ -33,8 +33,6 @@ export class NewsfeedComponent implements OnInit {
 
     this.spinner.show('quote-loader');
 
-    console.log(typeof id);
-
     this.quoteService.getRange(id, n)
       .subscribe(
         (quotes) => {

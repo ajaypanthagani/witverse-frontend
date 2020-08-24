@@ -55,15 +55,15 @@ export class QuoteService {
 
     const url = urls.base_url + urls.quote.replace('{quote-id}', id);
 
-    this.http.put(url, quote);
+    return this.http.put(url, quote);
 
   }
 
-  delete(id){
+  delete(id : any){
 
     const url = urls.base_url + urls.quote.replace('{quote-id}', ''+id);
 
-    this.http.delete(url);
+    return this.http.delete(url);
 
   }
 }

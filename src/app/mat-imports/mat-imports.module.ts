@@ -14,6 +14,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -29,7 +31,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatChipsModule,
     MatRadioModule,
     MatProgressBarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule,
+    MatDialogModule
   ],
   exports : [
     MatToolbarModule,
@@ -42,7 +46,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatChipsModule,
     MatRadioModule,
     MatProgressBarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule,
+    MatDialogModule
   ]
 })
 export class MatImportsModule { }

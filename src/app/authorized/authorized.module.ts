@@ -13,6 +13,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // services imports
 import { QuoteService } from './services/quote.service';
 import { SearchService } from './services/search.service';
+import { UserService } from './services/user.service';
+import { ActionService } from './services/action.service';
 
 /*material imports module*/
 import { MatImportsModule } from '../mat-imports/mat-imports.module';
@@ -31,6 +33,7 @@ import { TrendingComponent } from './trending/trending.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ExploreGridComponent } from './explore-grid/explore-grid.component';
+import { SuggestionComponent } from './suggestion/suggestion.component';
 
 
 
@@ -50,7 +53,8 @@ import { ExploreGridComponent } from './explore-grid/explore-grid.component';
     TrendingComponent, 
     SearchComponent, 
     SearchResultComponent, 
-    ExploreGridComponent
+    ExploreGridComponent, 
+    SuggestionComponent
   ],
   imports: [
     CommonModule,
@@ -65,8 +69,9 @@ import { ExploreGridComponent } from './explore-grid/explore-grid.component';
 
     FormBuilder,
     QuoteService,
-    SearchService
-
+    SearchService,
+    UserService,
+    ActionService
   ]
 })
 export class AuthorizedModule { }

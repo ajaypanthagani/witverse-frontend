@@ -28,3 +28,36 @@
 
     width : 100vw;
 }
+
+.suggestions-wrapper{
+
+    position: relative;
+    width: inherit;
+}
+
+.suggestions{
+
+    position: fixed;
+    width: inherit;
+}
+
+.small-screen-suggestion-wrapper{
+
+    padding : 10px;
+}
+
+.small-screen-suggestion{
+
+    flex-direction: row;
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
+.footer{
+
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+

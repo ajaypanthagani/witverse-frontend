@@ -11,6 +11,13 @@
         <app-quote-create class="quote-form"></app-quote-create>
         <!-- quote create form -ends -->
 
+        <div class="small-screen-suggestion-wrapper hidden-md">
+
+            <p>Follow suggestions</p>
+            <app-suggestion class="small-screen-suggestion flex"></app-suggestion>
+
+        </div>
+
         <!-- newsfeed starts -->
         <app-newsfeed *ngIf="data.quotes.length > 0" class="newsfeed" [quotes]="data.quotes" ></app-newsfeed>
         <!-- newsfeed ends -->
@@ -22,8 +29,19 @@
     <!-- sidebar section starts -->
     <div class="sidebar hidden-sm">
 
-        <app-trending *ngIf="trends" class="trends" [trends]=""></app-trending>
+        <div class="suggestions-wrapper">
+            <div class="suggestions">
 
+                <p>Follow suggestions</p>
+                <app-suggestion></app-suggestion>
+    
+                <div class="footer">
+                    <p>&copy; 2020 witverse</p>
+                </div>
+    
+            </div>
+        </div>
+                
     </div>
     <!-- sidebar section ends -->
 

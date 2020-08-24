@@ -76,3 +76,12 @@ body{
         flex : 1 1 auto;
     }
 }
+
+@media screen and (min-width : 741px){
+
+    .hidden-md{
+
+        display: none;
+    }
+
+}

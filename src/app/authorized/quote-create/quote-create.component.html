@@ -1,6 +1,8 @@
 <mat-card>
     <mat-card-header>
-        <div class="user-display-image" mat-card-avatar></div>
+
+        <div class="user-display-image" mat-card-avatar [style.backgroundImage]=" 'url(' + base_url + user.displayImage + ')' "></div>
+        
     </mat-card-header>
     <mat-card-content>
 

@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { QuoteService } from '../services/quote.service';
 import { DataService } from '../../services/data.service';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { urls } from '../../resources/urls';
+
 //keycodes import
 import {COMMA, ENTER, SPACE} from '@angular/cdk/keycodes';
 
@@ -21,6 +25,9 @@ export class QuoteCreateComponent implements OnInit {
 
   @Input()
   quote;
+
+  base_url = urls.base_url;
+  user : any;
 
   form : FormGroup;
 
@@ -61,11 +68,13 @@ export class QuoteCreateComponent implements OnInit {
   constructor(
     private formBuilder : FormBuilder, 
     private quoteService : QuoteService,
-    private data : DataService) { 
+    private data : DataService,
+    private snackbar : MatSnackBar) { 
 
     //creating reactive form
     this.createForm();
 
+    this.user = data.getUser();
   }
 
   ngOnInit(): void {
@@ -180,7 +189,31 @@ export class QuoteCreateComponent implements OnInit {
     // logic to check if update or create
     if(this.quote){
 
-      console.log('put', data);
+      this.quoteService.put(this.quote._id, data)
+      .subscribe(
+
+        (quote) => {
+
+          this.quote = quote;
+
+          this.data.quotes.forEach((element, index) => {
+
+            if(element._id === this.quote._id){
+
+              this.data.quotes[index] = quote;
+
+            }
+          });
+
+          this.snackbar.open('quote updated successfuly', 'OK');
+        },
+        (error) => {
+
+          console.log(error);
+
+          this.snackbar.open('couldn\'t update quote', 'OK');
+        }
+      )
   
     }
     else{
@@ -189,15 +222,20 @@ export class QuoteCreateComponent implements OnInit {
       .subscribe(
 
         (quote) => {
-
-          console.log(quote);
           
           this.data.insertQuotes([quote]);
+          this.snackbar.open('quote created succesfully', 'OK');
+
+        },
+        (error) => {
+
+          console.log(error);
+          this.snackbar.open('couldn\'t create quote', 'OK');
         }
       )
-    }
 
-    this.clear(this.form);
+      this.clear(this.form);
+    }
     
   }
   // submit function ends

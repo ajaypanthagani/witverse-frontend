@@ -1,4 +1,25 @@
-<mat-card>
+<div class="dim-screen" *ngIf="editmode">
+</div>
+
+<mat-card id="edit-card" class="edit-card" *ngIf="editmode" [class.mat-elevation-z8]="true">
+
+    <mat-card-header>
+
+        <mat-card-title>Edit</mat-card-title>
+        <mat-card-subtitle>quote</mat-card-subtitle>
+        <span class="spacer"></span>
+        <button class="close-edit" color="warn" mat-icon-button (click)="closeEdit()">
+            <mat-icon color="warn">close</mat-icon>
+        </button>
+    </mat-card-header>
+    <mat-card-content>
+        <app-quote-create [quote]="quote"></app-quote-create>
+    </mat-card-content>
+
+</mat-card>
+
+
+<mat-card *ngIf="!editmode">
     <mat-card-header>
  
         <div class="author-display-image" mat-card-avatar [style.backgroundImage]=" 'url(' + base_url + quote.author.displayImage + ')' "></div>
@@ -9,9 +30,23 @@
         <span class="spacer"></span>
         <!-- spacer ends -->
 
-        <button mat-icon-button>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>more_horiz</mat-icon>
         </button>
+        <mat-menu #menu="matMenu">
+            <button *ngIf="quote.isOwned" mat-menu-item (click)="openEdit()">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button *ngIf="quote.isOwned" mat-menu-item (click)="delete()">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Report</span>
+            </button>
+        </mat-menu>
 
     </mat-card-header>
 
@@ -22,7 +57,7 @@
     <mat-card-content>
 
         <!-- quotation icon starts -->
-        <mat-icon class="quote-icon">format_quote</mat-icon>
+        <mat-icon color="primary" class="quote-icon">format_quote</mat-icon>
         <!-- quotation icon ends -->
 
         <p class="content-container flex word-wrap">
@@ -41,10 +76,10 @@
 
         <div class="flex">
             <!-- like/unlike button starts -->
-            <button mat-icon-button *ngIf="quote.isLiked">
+            <button mat-icon-button *ngIf="quote.isLiked" (click)="unlike()">
                 <mat-icon>favorite</mat-icon>
             </button>
-            <button mat-icon-button  *ngIf="!(quote.isLiked)">
+            <button mat-icon-button  *ngIf="!(quote.isLiked)" (click)="like()">
                 <mat-icon>favorite_border</mat-icon>
             </button>
             <!-- like/unlike button ends -->
@@ -56,7 +91,15 @@
             <!-- comment button ends -->
 
             <!-- spacer starts -->
-            <span class="spacer"></span>
+            <div class="spacer">
+
+                <p class="emotion-text">
+
+                    <mat-icon class="emoticon">{{emotions[quote.emotion]}}</mat-icon>
+
+                </p>
+
+            </div>
             <!-- spacer ends -->
 
             <!-- share button starts -->

@@ -18,7 +18,15 @@ export const urls = {
 
         like_quote : '/actions/like/quote/{quote-id}',
 
-        like_comment : '/actions/like/quote/{quote-id}'
+        like_comment : '/actions/like/quote/{quote-id}/comment/{comment-id}'
+    },
+
+    save : {
+
+        quotes : '/actions/save/quotes',
+
+        quote : '/actions/save/{quote-id}',
+        
     },
 
     infinite : {
