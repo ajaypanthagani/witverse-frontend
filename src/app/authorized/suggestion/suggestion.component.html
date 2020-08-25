@@ -1,25 +1,4 @@
+<div class="suggestion" *ngFor="let user of users">
 
-<mat-card class="suggestion" *ngFor="let user of users">
-
-    <mat-card-header>
-
-        <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url(' + url + user.displayImage +')'"></div>
-
-        <!-- <mat-card-title class="username">{{user.username}}</mat-card-title> -->
-        <mat-card-subtitle class="lastname">{{user.firstname}} {{user.lastname}}</mat-card-subtitle>
-
-
-        <span class="spacer"></span>
-
-        <div class="follow-buttons">
-
-            <button mat-icon-button color="accent">
-                <mat-icon>person_add</mat-icon>
-            </button>
-
-        </div>
-
-
-    </mat-card-header>
-
-</mat-card>
+    <app-user-well [user]="user"></app-user-well>
+</div>

@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (quotes) => {
 
+          console.log(quotes);
           this.data.pushQuotes(quotes);
 
         },

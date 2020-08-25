@@ -65,8 +65,36 @@ export class QuoteComponent implements OnInit {
       },
       (error) => {
 
-        this.snackbar.open('couldn\'t like quote!');
+        this.snackbar.open('couldn\'t like quote!', 'OK');
 
+      }
+    )
+  }
+
+  save(){
+
+    this.actionService.saveQuote(this.quote._id)
+    .subscribe(
+      (quote) => {
+        this.quote = quote;
+      },
+      (error)=>{
+
+        this.snackbar.open('couldn\'t save quote', 'OK');
+      }
+    )
+  }
+
+  unsave(){
+
+    this.actionService.unsaveQuote(this.quote._id)
+    .subscribe(
+      (quote) => {
+        this.quote = quote;
+      },
+      (error)=>{
+
+        this.snackbar.open('couldn\'t unsave quote', 'OK');
       }
     )
   }

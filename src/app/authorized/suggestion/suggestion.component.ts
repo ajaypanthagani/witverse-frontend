@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 
-import { urls } from '../../resources/urls';
-
 @Component({
   selector: 'app-suggestion',
   templateUrl: './suggestion.component.html',
@@ -12,13 +10,7 @@ export class SuggestionComponent implements OnInit {
 
   users : any;
 
-  url : any;
-
-  constructor(private userService : UserService) { 
-
-    this.url = urls.base_url;
-    
-  }
+  constructor( private userService : UserService ) { }
 
   ngOnInit(): void {
 

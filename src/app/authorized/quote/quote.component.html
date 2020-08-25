@@ -42,8 +42,8 @@
               <mat-icon>delete</mat-icon>
               <span>Delete</span>
             </button>
-            <button mat-menu-item>
-              <mat-icon>notifications_off</mat-icon>
+            <button *ngIf="!quote.isOwned" mat-menu-item>
+              <mat-icon>report</mat-icon>
               <span>Report</span>
             </button>
         </mat-menu>
@@ -76,8 +76,8 @@
 
         <div class="flex">
             <!-- like/unlike button starts -->
-            <button mat-icon-button *ngIf="quote.isLiked" (click)="unlike()">
-                <mat-icon>favorite</mat-icon>
+            <button mat-icon-button *ngIf="quote.isLiked" (click)="unlike()" [class.mat-elevation-z2]="true">
+                <mat-icon color="accent">favorite</mat-icon>
             </button>
             <button mat-icon-button  *ngIf="!(quote.isLiked)" (click)="like()">
                 <mat-icon>favorite_border</mat-icon>
@@ -91,13 +91,9 @@
             <!-- comment button ends -->
 
             <!-- spacer starts -->
-            <div class="spacer">
-
-                <p class="emotion-text">
+            <div class="spacer flex emotion-container">
 
                     <mat-icon class="emoticon">{{emotions[quote.emotion]}}</mat-icon>
-
-                </p>
 
             </div>
             <!-- spacer ends -->
@@ -109,10 +105,10 @@
             <!-- share button ends -->
 
             <!-- save button starts -->
-            <button mat-icon-button *ngIf="quote.isSaved">
+            <button mat-icon-button *ngIf="quote.isSaved" (click)="unsave()">
                 <mat-icon>bookmark</mat-icon>
             </button>
-            <button mat-icon-button *ngIf="!(quote.isSaved)">
+            <button mat-icon-button *ngIf="!(quote.isSaved)" (click)="save()">
                 <mat-icon>bookmark_border</mat-icon>
             </button>
             <!-- save button ends -->

@@ -25,8 +25,17 @@ export const urls = {
 
         quotes : '/actions/save/quotes',
 
-        quote : '/actions/save/{quote-id}',
+        quote : '/actions/save/quotes/{quote-id}',
         
+    },
+
+    connections : {
+
+        followers : '/connections/followers/{user-id}',
+        following : '/connections/following/{user-id}',
+
+        follow : '/connections/follow/{user-id}',
+        unfollow : '/connections/unfollow/{user-id}'
     },
 
     infinite : {

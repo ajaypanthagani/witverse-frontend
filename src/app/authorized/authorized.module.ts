@@ -15,6 +15,7 @@ import { QuoteService } from './services/quote.service';
 import { SearchService } from './services/search.service';
 import { UserService } from './services/user.service';
 import { ActionService } from './services/action.service';
+import { ConnectionsService } from './services/connections.service';
 
 /*material imports module*/
 import { MatImportsModule } from '../mat-imports/mat-imports.module';
@@ -34,6 +35,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ExploreGridComponent } from './explore-grid/explore-grid.component';
 import { SuggestionComponent } from './suggestion/suggestion.component';
+import { UserWellComponent } from './user-well/user-well.component';
 
 
 
@@ -54,7 +56,7 @@ import { SuggestionComponent } from './suggestion/suggestion.component';
     SearchComponent, 
     SearchResultComponent, 
     ExploreGridComponent, 
-    SuggestionComponent
+    SuggestionComponent, UserWellComponent
   ],
   imports: [
     CommonModule,
@@ -71,7 +73,9 @@ import { SuggestionComponent } from './suggestion/suggestion.component';
     QuoteService,
     SearchService,
     UserService,
-    ActionService
+    ActionService,
+    ConnectionsService
+    
   ]
 })
 export class AuthorizedModule { }

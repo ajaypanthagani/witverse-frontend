@@ -1,0 +1,39 @@
+<mat-card>
+
+    <mat-card-header>
+
+        <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url(' + url + user.displayImage +')'"></div>
+
+        <!-- <mat-card-title class="username">{{user.username}}</mat-card-title> -->
+        <mat-card-subtitle class="lastname">{{user.firstname}} {{user.lastname}}</mat-card-subtitle>
+
+
+        <span class="spacer"></span>
+
+        <div class="follow-buttons">
+
+            <ngx-spinner
+                class="follow-loader"
+                bdColor="none"
+                [fullScreen]="false"
+                [name]="user._id"
+                size="small"
+                color="#3f51b5"
+                type="line-spin-fade">
+    
+            </ngx-spinner>
+
+            <button [disabled]="processing" mat-button color="primary" *ngIf="!user.isFollowed" (click)="follow(user._id)">
+                follow
+            </button>
+            <button [disabled]="processing" mat-button color="warn" *ngIf="user.isFollowed" (click)="unfollow(user._id)">
+                unfollow
+            </button>
+
+        </div>
+
+
+    </mat-card-header>
+
+
+</mat-card>
