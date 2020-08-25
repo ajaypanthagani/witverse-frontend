@@ -36,6 +36,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { ExploreGridComponent } from './explore-grid/explore-grid.component';
 import { SuggestionComponent } from './suggestion/suggestion.component';
 import { UserWellComponent } from './user-well/user-well.component';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 
 
@@ -56,7 +57,7 @@ import { UserWellComponent } from './user-well/user-well.component';
     SearchComponent, 
     SearchResultComponent, 
     ExploreGridComponent, 
-    SuggestionComponent, UserWellComponent
+    SuggestionComponent, UserWellComponent, ProfileCardComponent
   ],
   imports: [
     CommonModule,
