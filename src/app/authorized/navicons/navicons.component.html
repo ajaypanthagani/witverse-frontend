@@ -5,7 +5,7 @@
     <button mat-icon-button routerLink="explore"  routerLinkActive="active">
         <mat-icon aria-label="explore navigation icon">explore</mat-icon>
     </button>
-    <button mat-icon-button routerLink="profile"  routerLinkActive="active">
+    <button mat-icon-button [routerLink]="['profile', data.user._id]"  routerLinkActive="active">
         <mat-icon aria-label="profile navigation icon">face</mat-icon>
     </button>
 </span>

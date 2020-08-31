@@ -1,5 +1,17 @@
-<p>{{ user | json }}</p>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, inventore.</p>
+<div class="gap"></div>
 
 
-<button mat-button (click)="auth.logout()">logout</button>
+<div class="profile-wrapper flex">
+    
+    <div class="profile" *ngIf="user">
+        <app-profile-card [user]="user"></app-profile-card>
+        <button mat-button (click)="auth.logout()">logout</button>
+
+
+
+        <router-outlet></router-outlet>
+
+    </div>
+
+</div>
+

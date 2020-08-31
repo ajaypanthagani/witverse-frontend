@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="goBack()">
+        <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="gap"></div>
+
+<app-connections-list [users]="followers"></app-connections-list>

@@ -37,6 +37,9 @@ import { ExploreGridComponent } from './explore-grid/explore-grid.component';
 import { SuggestionComponent } from './suggestion/suggestion.component';
 import { UserWellComponent } from './user-well/user-well.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { ConnectionsListComponent } from './connections-list/connections-list.component';
+import { FollowersComponent } from './followers/followers.component';
+import { FollowingComponent } from './following/following.component';
 
 
 
@@ -57,7 +60,7 @@ import { ProfileCardComponent } from './profile-card/profile-card.component';
     SearchComponent, 
     SearchResultComponent, 
     ExploreGridComponent, 
-    SuggestionComponent, UserWellComponent, ProfileCardComponent
+    SuggestionComponent, UserWellComponent, ProfileCardComponent, ConnectionsListComponent, FollowersComponent, FollowingComponent
   ],
   imports: [
     CommonModule,

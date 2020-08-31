@@ -8,6 +8,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ExploreGridComponent } from './explore-grid/explore-grid.component';
+import { FollowersComponent } from './followers/followers.component';
+import { FollowingComponent } from './following/following.component';
 
 export const routes: Routes = [
 
@@ -36,8 +38,19 @@ export const routes: Routes = [
                 ]
             },
             {
-                path : "profile",
-                component : ProfileComponent
+                path : "profile/:id",
+                component : ProfileComponent,
+                children : [
+
+                    {
+                        path : "followers",
+                        component : FollowersComponent
+                    },
+                    {
+                        path : "following",
+                        component : FollowingComponent
+                    }
+                ]
             },
             {
                 path : "",

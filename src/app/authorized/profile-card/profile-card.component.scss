@@ -1,0 +1,29 @@
+.user-display-image{
+
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.stats{
+
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.follower-stats, .following-stats{
+
+    flex-direction: column;
+    text-align: center;
+}
+
+.follow-button, .settings-button{
+
+    align-items: center;
+}
+
+.follow-loader{
+
+    position: relative;
+    
+}

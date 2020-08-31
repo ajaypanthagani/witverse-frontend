@@ -2,7 +2,7 @@
 
     <mat-card-header>
 
-        <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url(' + url + user.displayImage +')'"></div>
+        <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url(' + url + user.displayImage +')'" [routerLink]="['/a/profile', user._id]"></div>
 
         <!-- <mat-card-title class="username">{{user.username}}</mat-card-title> -->
         <mat-card-subtitle class="lastname">{{user.firstname}} {{user.lastname}}</mat-card-subtitle>
@@ -10,7 +10,7 @@
 
         <span class="spacer"></span>
 
-        <div class="follow-buttons">
+        <div class="follow-buttons" *ngIf="!user.isMe">
 
             <ngx-spinner
                 class="follow-loader"
@@ -30,6 +30,13 @@
                 unfollow
             </button>
 
+        </div>
+
+        <div class="self-indicator" *ngIf="user.isMe">
+
+            <button mat-button disabled>
+                You
+            </button>
         </div>
 
 

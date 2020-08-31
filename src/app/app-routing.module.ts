@@ -6,7 +6,7 @@ import { routes } from './routes';
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollOffset : [0, 0], scrollPositionRestoration : 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

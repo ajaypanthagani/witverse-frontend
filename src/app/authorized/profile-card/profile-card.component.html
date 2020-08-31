@@ -1,1 +1,90 @@
-<p>profile-card works!</p>
+<mat-card>
+    <mat-card-header>
+
+        <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url(' + url + user.displayImage + ')'"></div>
+
+        <span class="spacer"></span>
+
+        <div class="stats flex">
+
+            <div class="follower-stats flex">
+                <h3>{{user.followers.length}}</h3>
+               <button mat-button routerLink="followers"><small>Followers</small></button>
+            </div>
+            <div class="following-stats flex">
+                <h3>{{user.following.length}}</h3>
+                <button mat-button routerLink="following"><small>Following</small></button>
+            </div>
+
+            <div class="follow-button flex" *ngIf="!user.isMe">
+
+                
+
+                <button [disabled]="processing" mat-raised-button color="primary" *ngIf="!user.isFollowed" (click)="follow(user._id)">
+                    follow 
+
+                    <div class="follow-loader">
+
+                        <ngx-spinner
+                            bdColor="none"
+                            [fullScreen]="false"
+                            [name]="user._id"
+                            size="small"
+                            color="#3f51b5"
+                            type="line-spin-fade">
+                        </ngx-spinner>
+
+                    </div>
+                    
+                </button>
+                <button [disabled]="processing" mat-raised-button color="warn" *ngIf="user.isFollowed" (click)="unfollow(user._id)">
+                    unollow
+
+                    <div class="follow-loader">
+
+                        <ngx-spinner
+                            bdColor="none"
+                            [fullScreen]="false"
+                            [name]="user._id"
+                            size="small"
+                            color="#3f51b5"
+                            type="line-spin-fade">
+                        </ngx-spinner>
+
+                    </div>
+
+                </button>
+            </div>
+            
+            <div class="settings-button flex" *ngIf="user.isMe">
+                <button mat-icon-button [matMenuTriggerFor]="settings">
+                    <mat-icon>settings</mat-icon>
+                </button>
+                <mat-menu #settings="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon color="primary">edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon  color="warn">delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>exit_to_app</mat-icon>
+                      <span>Logout</span>
+                    </button>
+                </mat-menu>
+            </div>
+
+        </div>
+        
+
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-title>{{user.username}}</mat-card-title>
+        <mat-card-subtitle>{{user.firstname}} {{user.lastname}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-footer>
+
+    </mat-card-footer>
+</mat-card>
