@@ -1,0 +1,26 @@
+.content{
+
+    height: 100%;
+    overflow-y: auto;
+}
+
+.posts{
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.post-container{
+
+    width: 50%;
+    padding: 10px;
+}
+
+@media screen and (max-width : 741px){
+
+    .post-container{
+
+        width: 100%;
+        flex: 1 1 auto;
+    }
+}

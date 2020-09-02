@@ -117,6 +117,8 @@ export class QuoteComponent implements OnInit {
 
         });
 
+        this.quote = null;
+
         this.snackbar.open('deleted succesfully', 'OK');
       },
       (error) => {

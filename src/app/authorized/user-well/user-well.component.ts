@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConnectionsService } from '../services/connections.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DataService } from '../../services/data.service';
 
 import { urls } from '../../resources/urls';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -23,7 +24,8 @@ export class UserWellComponent implements OnInit {
   constructor(
     private connections : ConnectionsService,
     private spinner : NgxSpinnerService,
-    private snackbar : MatSnackBar) {
+    private snackbar : MatSnackBar,
+    private data : DataService) {
     
     this.url = urls.base_url;
 
@@ -42,6 +44,7 @@ export class UserWellComponent implements OnInit {
       (success) => {
 
         this.user.isFollowed = true;
+        this.data.user.following.push(this.user._id);
         this.processing = false;
         this.spinner.hide(this.user._id);
 
@@ -66,6 +69,7 @@ export class UserWellComponent implements OnInit {
       (success) => {
 
         this.user.isFollowed = false;
+        this.data.user.following = this.data.user.following.filter((follower) => follower !== this.user._id);
         this.processing = false;
         this.spinner.hide(this.user._id);
 

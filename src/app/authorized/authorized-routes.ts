@@ -10,6 +10,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { ExploreGridComponent } from './explore-grid/explore-grid.component';
 import { FollowersComponent } from './followers/followers.component';
 import { FollowingComponent } from './following/following.component';
+import { ProfileTabsComponent } from './profile-tabs/profile-tabs.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 export const routes: Routes = [
 
@@ -41,7 +43,14 @@ export const routes: Routes = [
                 path : "profile/:id",
                 component : ProfileComponent,
                 children : [
-
+                    {
+                        path : "",
+                        component : ProfileTabsComponent
+                    },
+                    {
+                        path : "edit",
+                        component : ProfileEditComponent
+                    },
                     {
                         path : "followers",
                         component : FollowersComponent

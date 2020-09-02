@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { urls } from '../../resources/urls';
 
 @Injectable({
@@ -39,6 +39,16 @@ export class UserService {
     const url = urls.base_url + urls.user.replace('{user-id}', id);
 
     return this.http.put(url, data);
+  }
+
+  changeDP(data){
+
+    const url = urls.base_url + urls.upload.displayImage;
+
+    return this.http.post(url, data, {
+      reportProgress : true,
+      observe : 'events'
+    });
   }
 
   deleteOne(id){

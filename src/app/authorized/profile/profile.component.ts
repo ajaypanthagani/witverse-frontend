@@ -19,21 +19,18 @@ export class ProfileComponent implements OnInit {
   constructor(
     private route : ActivatedRoute, 
     private userService : UserService,
-    public auth : AuthService){
+    public data : DataService){
 
     this.user = null;
     this.route.params.subscribe(params => {
 
       this.id = params.id;
-      console.log(this.id);
       this.userService.getOne(this.id)
       .subscribe(
         
         (user) => {
   
           this.user = user;
-
-          console.log(this.user);
   
         }
       )

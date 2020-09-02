@@ -1,10 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConnectionsService } from '../services/connections.service';
 import { DataService } from '../../services/data.service';
+import { AuthService } from '../../services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { urls } from '../../resources/urls';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { DisplayImageSelectionComponent } from '../display-image-selection/display-image-selection.component';
 
 @Component({
   selector: 'app-profile-card',
@@ -25,7 +28,9 @@ export class ProfileCardComponent implements OnInit {
     private connections : ConnectionsService,
     private spinner : NgxSpinnerService,
     private snackbar : MatSnackBar,
-    private data : DataService) { }
+    private data : DataService,
+    private auth : AuthService,
+    private dialog : MatDialog) { }
 
   ngOnInit(): void {
 
@@ -94,6 +99,32 @@ export class ProfileCardComponent implements OnInit {
     const id = this.data.user._id;
 
     this.user.followers = this.user.followers.filter((userId) => userId !== id);
+  }
+
+  edit(){
+
+    console.log("edit");
+
+  }
+
+  delete(){
+
+    console.log("delete");
+    
+  }
+
+  logout(){
+
+    this.auth.logout();
+
+  }
+
+  changeDP(){
+
+    if(this.user.isMe){
+
+      this.dialog.open(DisplayImageSelectionComponent);
+    }
   }
 
 }

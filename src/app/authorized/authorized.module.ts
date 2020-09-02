@@ -40,6 +40,9 @@ import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { ConnectionsListComponent } from './connections-list/connections-list.component';
 import { FollowersComponent } from './followers/followers.component';
 import { FollowingComponent } from './following/following.component';
+import { ProfileTabsComponent } from './profile-tabs/profile-tabs.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { DisplayImageSelectionComponent } from './display-image-selection/display-image-selection.component';
 
 
 
@@ -60,7 +63,7 @@ import { FollowingComponent } from './following/following.component';
     SearchComponent, 
     SearchResultComponent, 
     ExploreGridComponent, 
-    SuggestionComponent, UserWellComponent, ProfileCardComponent, ConnectionsListComponent, FollowersComponent, FollowingComponent
+    SuggestionComponent, UserWellComponent, ProfileCardComponent, ConnectionsListComponent, FollowersComponent, FollowingComponent, ProfileTabsComponent, ProfileEditComponent, DisplayImageSelectionComponent
   ],
   imports: [
     CommonModule,

@@ -62,6 +62,20 @@ export class AuthService {
 
   }
 
+  resetPassword(passwords){
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    const url = urls.base_url + urls.auth.resetPassword;
+
+    return this.http.post(url, passwords, httpOptions);
+
+  }
+
   //helper functions
   bootstrapAuth(){
 

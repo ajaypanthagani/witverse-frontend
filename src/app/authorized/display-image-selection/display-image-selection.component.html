@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Change Display Image</h2>
+<mat-dialog-content>
+    <div class="dp-change-wrapper flex">
+
+        <div class="dp-change flex">
+
+            <img class="dp-original item" *ngIf="!displayImage"  [src]="url + data.user.displayImage">
+            <img class="dp-preview item" *ngIf="displayImage"  [src]="displayImageURL">
+            <div class="gap item"></div>
+
+            <small>note : do not worry about image stretches, they will be fixed while rendering</small>
+
+            
+            <mat-progress-bar
+                color="primary"
+                mode="determinate"
+                [value]="progress"
+                *ngIf="processing">
+            </mat-progress-bar>
+
+            <form enctype='multipart/form-data' class="form item">
+                <input #displayImageInput [style.display]="'none'" type="file" class="dp-selection" accept="image/*" (change)="onFileChange($event)">
+                <div class="gap"></div>
+                <button [disabled]="processing" mat-raised-button color="accent" (click)="displayImageInput.click()">Pick An Image</button>
+            </form>
+
+        </div>
+
+    </div>
+</mat-dialog-content>

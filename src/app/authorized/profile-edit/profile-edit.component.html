@@ -1,0 +1,157 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="goBack()">
+        <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="edit-wrapper flex">
+
+    <div class="update">
+
+        <form [formGroup]="form">
+
+            <div class="loader pos-relative">
+
+                <ngx-spinner
+                bdColor="none"
+                [fullScreen]="false"
+                size="medium"
+                color="#3f51b5"
+                type="ball-scale-multiple"
+                name="formLoader">
+    
+                </ngx-spinner>
+    
+            </div>
+
+            <p>
+                <mat-form-field class="firstname-form-field" appearance="outline">
+                    <mat-label>Firstname</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="firstname-input-field" 
+                        matInput 
+                        placeholder="firstname" 
+                        autocomplete="off" 
+                        formControlName="firstname"
+                        type="text">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>looks_one</mat-icon>
+                    <mat-hint>enter firstname here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.firstname}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="lastname-form-field" appearance="outline">
+                    <mat-label>lastname</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="lastname-input-field" 
+                        matInput 
+                        placeholder="lastname" 
+                        autocomplete="off" 
+                        formControlName="lastname"
+                        type="text">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>looks_two</mat-icon>
+                    <mat-hint>enter lastname here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.lastname}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="username-form-field" appearance="outline">
+                    <mat-label>Username</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="username-input-field" 
+                        matInput 
+                        placeholder="username" 
+                        autocomplete="off" 
+                        formControlName="username"
+                        type="text">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-hint>enter username here</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.username}}</mat-error>
+                </mat-form-field>
+            </p>
+
+            <button [disabled]="form.invalid" mat-raised-button color="accent" class="update-button" (click)="submit()">update</button>
+            <small class="success-message">{{response.message}}</small>
+            <small class="error-message">{{response.error}}</small>
+        </form>
+
+    </div>
+
+    <div class="password">
+        <form [formGroup]="passwordForm">
+
+            <div class="loader pos-relative">
+
+                <ngx-spinner
+                bdColor="none"
+                [fullScreen]="false"
+                size="medium"
+                color="#3f51b5"
+                type="ball-scale-multiple"
+                name="passwordFormLoader">
+    
+                </ngx-spinner>
+    
+            </div>
+
+            <p>
+                <mat-form-field class="currpass-form-field" appearance="outline">
+                    <mat-label>Current Password</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="currpass-input-field" 
+                        matInput 
+                        placeholder="current password" 
+                        autocomplete="off" 
+                        formControlName="oldPassword"
+                        type="password">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>fingerprint</mat-icon>
+                    <mat-hint>enter firstname here</mat-hint>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="newpass-form-field" appearance="outline">
+                    <mat-label>New Password</mat-label>
+
+                    <!-- input field starts -->
+                    <input 
+                        class="newpass-input-field" 
+                        matInput 
+                        placeholder="new password" 
+                        autocomplete="off" 
+                        formControlName="newPassword"
+                        type="password">
+                    <!-- input field ends -->
+
+                    <mat-icon matSuffix>fingerprint</mat-icon>
+                    <mat-hint>enter lastname here</mat-hint>
+                </mat-form-field>
+            </p>
+
+            <mat-error *ngIf="passwordForm.invalid">{{errors.password}}</mat-error>
+
+            <button [disabled]="passwordForm.invalid" mat-raised-button color="accent" class="password-button" (click)="submitPassword()">change password</button>
+            <small class="success-message">{{response.message}}</small>
+            <small class="error-message">{{response.error}}</small>
+        </form>
+    </div>
+
+</div>

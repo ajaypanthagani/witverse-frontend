@@ -33,9 +33,9 @@ export class ActionService {
 
   }
 
-  getSavedQuotes(){
+  getSavedQuotes(userId){
 
-    const url = urls.base_url + urls.quotes;
+    const url = urls.base_url + urls.savedBy.replace('{user-id}', userId);
 
     return this.http.get(url);
   }

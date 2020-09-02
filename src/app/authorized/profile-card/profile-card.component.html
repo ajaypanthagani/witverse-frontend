@@ -1,8 +1,7 @@
 <mat-card>
     <mat-card-header>
 
-        <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url(' + url + user.displayImage + ')'"></div>
-
+        <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url(' + url + user.displayImage + ')'" (click)="changeDP()"></div>
         <span class="spacer"></span>
 
         <div class="stats flex">
@@ -61,15 +60,15 @@
                     <mat-icon>settings</mat-icon>
                 </button>
                 <mat-menu #settings="matMenu">
-                    <button mat-menu-item>
+                    <button mat-menu-item routerLink="edit">
                       <mat-icon color="primary">edit</mat-icon>
                       <span>Edit</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="delete()">
                       <mat-icon  color="warn">delete</mat-icon>
                       <span>Delete</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="logout()">
                       <mat-icon>exit_to_app</mat-icon>
                       <span>Logout</span>
                     </button>

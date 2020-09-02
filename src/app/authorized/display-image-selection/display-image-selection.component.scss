@@ -1,0 +1,27 @@
+.dp-change-wrapper{
+
+    justify-content: center;
+}
+
+.dp-change{
+
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.form{
+
+    text-align: center;
+}
+.item{
+
+    width: 100%;
+}
+
+.dp-original, .dp-preview{
+
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: contain;
+}

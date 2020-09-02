@@ -37,7 +37,6 @@ export class NewsfeedComponent implements OnInit {
       .subscribe(
         (quotes) => {
 
-          console.log(quotes);
           this.spinner.hide('quote-loader');
           this.data.pushQuotes(quotes);
           this.processing = false;

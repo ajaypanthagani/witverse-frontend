@@ -4,6 +4,8 @@ export const urls = {
 
     quotes : '/quotes',
 
+    quotesBy : '/quotes/by/{user-id}',
+
     comments : '/comments/{quote-id}',
 
     quote : '/quotes/{quote-id}',
@@ -29,6 +31,8 @@ export const urls = {
         
     },
 
+    savedBy : '/actions/saved/by/{user-id}',
+
     connections : {
 
         followers : '/connections/followers/{user-id}',
@@ -53,6 +57,12 @@ export const urls = {
 
         login : '/auth/login',
         register : '/auth/users',
-        user : '/auth/user'
+        user : '/auth/user',
+        resetPassword : '/auth/reset-password'
+    },
+
+    upload : {
+
+        displayImage : '/upload/displayImage'
     }
 }

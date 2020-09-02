@@ -1,117 +1,119 @@
-<div class="dim-screen" *ngIf="editmode">
-</div>
-
-<mat-card id="edit-card" class="edit-card" *ngIf="editmode" [class.mat-elevation-z8]="true">
-
-    <mat-card-header>
-
-        <mat-card-title>Edit</mat-card-title>
-        <mat-card-subtitle>quote</mat-card-subtitle>
-        <span class="spacer"></span>
-        <button class="close-edit" color="warn" mat-icon-button (click)="closeEdit()">
-            <mat-icon color="warn">close</mat-icon>
-        </button>
-    </mat-card-header>
-    <mat-card-content>
-        <app-quote-create [quote]="quote"></app-quote-create>
-    </mat-card-content>
-
-</mat-card>
-
-
-<mat-card *ngIf="!editmode">
-    <mat-card-header>
- 
-        <div class="author-display-image" mat-card-avatar [style.backgroundImage]=" 'url(' + base_url + quote.author.displayImage + ')' " [routerLink]="['/a/profile', quote.author._id]"></div>
-        <mat-card-title>{{quote.author.username}}</mat-card-title>
-        <mat-card-subtitle>{{quote.author.firstname}} {{quote.author.lastname}}</mat-card-subtitle>
-
-        <!-- spacer starts -->
-        <span class="spacer"></span>
-        <!-- spacer ends -->
-
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_horiz</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button *ngIf="quote.isOwned" mat-menu-item (click)="openEdit()">
-              <mat-icon>edit</mat-icon>
-              <span>Edit</span>
+<div class="entire-wrap" *ngIf="quote">
+    <div class="dim-screen" *ngIf="editmode">
+    </div>
+    
+    <mat-card id="edit-card" class="edit-card" *ngIf="editmode" [class.mat-elevation-z8]="true">
+    
+        <mat-card-header>
+    
+            <mat-card-title>Edit</mat-card-title>
+            <mat-card-subtitle>quote</mat-card-subtitle>
+            <span class="spacer"></span>
+            <button class="close-edit" color="warn" mat-icon-button (click)="closeEdit()">
+                <mat-icon color="warn">close</mat-icon>
             </button>
-            <button *ngIf="quote.isOwned" mat-menu-item (click)="delete()">
-              <mat-icon>delete</mat-icon>
-              <span>Delete</span>
-            </button>
-            <button *ngIf="!quote.isOwned" mat-menu-item>
-              <mat-icon>report</mat-icon>
-              <span>Report</span>
-            </button>
-        </mat-menu>
-
-    </mat-card-header>
-
-    <!-- mat divider starts -->
-    <mat-divider></mat-divider>
-    <!-- mat divider ends -->
-
-    <mat-card-content>
-
-        <!-- quotation icon starts -->
-        <mat-icon color="primary" class="quote-icon">format_quote</mat-icon>
-        <!-- quotation icon ends -->
-
-        <p class="content-container flex word-wrap">
-            
-            {{quote.text}}
-
-        </p>
-
-    </mat-card-content>
-
-    <!-- mat divider starts -->
-    <mat-divider></mat-divider>
-    <!-- mat divider ends -->
-
-    <mat-card-actions>
-
-        <div class="flex">
-            <!-- like/unlike button starts -->
-            <button mat-icon-button *ngIf="quote.isLiked" (click)="unlike()" [class.mat-elevation-z2]="true">
-                <mat-icon color="accent">favorite</mat-icon>
-            </button>
-            <button mat-icon-button  *ngIf="!(quote.isLiked)" (click)="like()">
-                <mat-icon>favorite_border</mat-icon>
-            </button>
-            <!-- like/unlike button ends -->
-
-            <!-- comment button starts -->
-            <button mat-icon-button>
-                <mat-icon>comment</mat-icon>
-            </button>
-            <!-- comment button ends -->
-
+        </mat-card-header>
+        <mat-card-content>
+            <app-quote-create [quote]="quote"></app-quote-create>
+        </mat-card-content>
+    
+    </mat-card>
+    
+    
+    <mat-card *ngIf="!editmode">
+        <mat-card-header>
+     
+            <div class="author-display-image" mat-card-avatar [style.backgroundImage]=" 'url(' + base_url + quote.author.displayImage + ')' " [routerLink]="['/a/profile', quote.author._id]"></div>
+            <mat-card-title>{{quote.author.username}}</mat-card-title>
+            <mat-card-subtitle>{{quote.author.firstname}} {{quote.author.lastname}}</mat-card-subtitle>
+    
             <!-- spacer starts -->
-            <div class="spacer flex emotion-container">
-
-                    <mat-icon class="emoticon">{{emotions[quote.emotion]}}</mat-icon>
-
-            </div>
+            <span class="spacer"></span>
             <!-- spacer ends -->
-
-            <!-- share button starts -->
-            <button mat-icon-button>
-                <mat-icon>share</mat-icon>
+    
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_horiz</mat-icon>
             </button>
-            <!-- share button ends -->
-
-            <!-- save button starts -->
-            <button mat-icon-button *ngIf="quote.isSaved" (click)="unsave()">
-                <mat-icon>bookmark</mat-icon>
-            </button>
-            <button mat-icon-button *ngIf="!(quote.isSaved)" (click)="save()">
-                <mat-icon>bookmark_border</mat-icon>
-            </button>
-            <!-- save button ends -->
-        </div>
-    </mat-card-actions>
-</mat-card>
+            <mat-menu #menu="matMenu">
+                <button *ngIf="quote.isOwned" mat-menu-item (click)="openEdit()">
+                  <mat-icon color="primary">edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button *ngIf="quote.isOwned" mat-menu-item (click)="delete()">
+                  <mat-icon color="warn">delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+                <button *ngIf="!quote.isOwned" mat-menu-item>
+                  <mat-icon>report</mat-icon>
+                  <span>Report</span>
+                </button>
+            </mat-menu>
+    
+        </mat-card-header>
+    
+        <!-- mat divider starts -->
+        <mat-divider></mat-divider>
+        <!-- mat divider ends -->
+    
+        <mat-card-content>
+    
+            <!-- quotation icon starts -->
+            <mat-icon color="primary" class="quote-icon">format_quote</mat-icon>
+            <!-- quotation icon ends -->
+    
+            <p class="content-container flex word-wrap">
+                
+                {{quote.text}}
+    
+            </p>
+    
+        </mat-card-content>
+    
+        <!-- mat divider starts -->
+        <mat-divider></mat-divider>
+        <!-- mat divider ends -->
+    
+        <mat-card-actions>
+    
+            <div class="flex">
+                <!-- like/unlike button starts -->
+                <button mat-icon-button *ngIf="quote.isLiked" (click)="unlike()" [class.mat-elevation-z2]="true">
+                    <mat-icon color="accent">favorite</mat-icon>
+                </button>
+                <button mat-icon-button  *ngIf="!(quote.isLiked)" (click)="like()">
+                    <mat-icon>favorite_border</mat-icon>
+                </button>
+                <!-- like/unlike button ends -->
+    
+                <!-- comment button starts -->
+                <button mat-icon-button>
+                    <mat-icon>comment</mat-icon>
+                </button>
+                <!-- comment button ends -->
+    
+                <!-- spacer starts -->
+                <div class="spacer flex emotion-container">
+    
+                        <mat-icon class="emoticon">{{emotions[quote.emotion]}}</mat-icon>
+    
+                </div>
+                <!-- spacer ends -->
+    
+                <!-- share button starts -->
+                <button mat-icon-button>
+                    <mat-icon>share</mat-icon>
+                </button>
+                <!-- share button ends -->
+    
+                <!-- save button starts -->
+                <button mat-icon-button *ngIf="quote.isSaved" (click)="unsave()">
+                    <mat-icon>bookmark</mat-icon>
+                </button>
+                <button mat-icon-button *ngIf="!(quote.isSaved)" (click)="save()">
+                    <mat-icon>bookmark_border</mat-icon>
+                </button>
+                <!-- save button ends -->
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

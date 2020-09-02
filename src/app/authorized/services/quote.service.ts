@@ -43,6 +43,15 @@ export class QuoteService {
 
   }
 
+  getQuotesBy(userId){
+
+    const url = urls.base_url + urls.quotesBy
+    .replace('{user-id}', '' + userId);
+
+    return this.http.get(url);
+
+  }
+
   post(quote){
 
     const url = urls.base_url + urls.quotes;
