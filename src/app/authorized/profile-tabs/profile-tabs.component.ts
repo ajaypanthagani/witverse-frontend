@@ -31,9 +31,9 @@ export class ProfileTabsComponent implements OnInit {
         this.quoteService.getQuotesBy(this.id)
         .subscribe(
     
-          (quotes) => {
+          (quotes : []) => {
     
-            this.posts = quotes;
+            this.posts = quotes.reverse();
           },
           (error) => {
     
@@ -45,9 +45,9 @@ export class ProfileTabsComponent implements OnInit {
         this.actionService.getSavedQuotes(this.id)
         .subscribe(
     
-          (quotes) => {
+          (quotes : []) => {
     
-            this.saved = quotes;
+            this.saved = quotes.reverse();
           },
           (error) => {
     

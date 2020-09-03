@@ -1,0 +1,45 @@
+<div class="comment-create">
+    <form [formGroup]="form">
+        <p>
+            <mat-form-field class="comment-form-field" appearance="outline">
+                <mat-label>Write comment</mat-label>
+    
+                <!-- input field starts -->
+                <input 
+                    class="comment-input"
+                    matInput 
+                    placeholder="what's on your mind?" 
+                    autocomplete="off"
+                    formControlName="text">
+                <!-- input field ends -->
+
+                <div class="loader pos-relative">
+
+                    <ngx-spinner
+                    bdColor="none"
+                    [fullScreen]="false"
+                    name="submit-loader"
+                    size="small"
+                    color="#3f51b5"
+                    type="ball-clip-rotate">
+        
+                    </ngx-spinner>
+                    
+                </div>
+
+                <button [disabled]="form.invalid" mat-icon-button class="submit" matSuffix>
+                    <mat-icon (click)="submit()">send</mat-icon>
+                </button>
+                <mat-hint>write a comment for the quote.</mat-hint>
+            </mat-form-field>
+    
+        </p>
+    </form>
+</div>
+<div class="main">
+    <div class="comments" *ngIf="comments">
+
+        <app-comment *ngFor="let comment of comments" [comment]="comment" [quoteId]="quoteId"></app-comment>
+
+    </div>    
+</div>

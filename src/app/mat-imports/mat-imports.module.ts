@@ -18,6 +18,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 @NgModule({
   declarations: [],
@@ -37,7 +38,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatMenuModule,
     MatDialogModule,
     MatTabsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatBottomSheetModule
   ],
   exports : [
     MatToolbarModule,
@@ -54,7 +56,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatMenuModule,
     MatDialogModule,
     MatTabsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatBottomSheetModule
   ]
 })
 export class MatImportsModule { }

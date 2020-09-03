@@ -43,6 +43,9 @@ import { FollowingComponent } from './following/following.component';
 import { ProfileTabsComponent } from './profile-tabs/profile-tabs.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { DisplayImageSelectionComponent } from './display-image-selection/display-image-selection.component';
+import { QuoteCommentsComponent } from './quote-comments/quote-comments.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentService } from './services/comment.service';
 
 
 
@@ -63,7 +66,7 @@ import { DisplayImageSelectionComponent } from './display-image-selection/displa
     SearchComponent, 
     SearchResultComponent, 
     ExploreGridComponent, 
-    SuggestionComponent, UserWellComponent, ProfileCardComponent, ConnectionsListComponent, FollowersComponent, FollowingComponent, ProfileTabsComponent, ProfileEditComponent, DisplayImageSelectionComponent
+    SuggestionComponent, UserWellComponent, ProfileCardComponent, ConnectionsListComponent, FollowersComponent, FollowingComponent, ProfileTabsComponent, ProfileEditComponent, DisplayImageSelectionComponent, QuoteCommentsComponent, CommentComponent
   ],
   imports: [
     CommonModule,
@@ -81,8 +84,8 @@ import { DisplayImageSelectionComponent } from './display-image-selection/displa
     SearchService,
     UserService,
     ActionService,
-    ConnectionsService
-    
+    ConnectionsService,
+    CommentService
   ]
 })
 export class AuthorizedModule { }

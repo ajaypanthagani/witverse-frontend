@@ -5,7 +5,8 @@ import { ActionService } from '../services/action.service';
 
 import { urls } from '../../resources/urls';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { QuoteCommentsComponent } from '../quote-comments/quote-comments.component';
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
@@ -31,7 +32,8 @@ export class QuoteComponent implements OnInit {
     private quoteService : QuoteService,
     private actionService : ActionService,
     private data : DataService,
-    private snackbar : MatSnackBar) { }
+    private snackbar : MatSnackBar,
+    private bottomsheet : MatBottomSheet) { }
 
   ngOnInit(): void {
 
@@ -41,9 +43,17 @@ export class QuoteComponent implements OnInit {
 
     this.actionService.likeQuote(this.quote._id)
     .subscribe(
-      (quote) => {
+      (quote : any) => {
 
-        this.quote = quote;
+        this.data.quotes.forEach((q, index) =>{
+
+          if(q._id === quote._id){
+
+            this.data.quotes[index] = quote;
+            
+          }
+
+        })
 
       },
       (error) => {
@@ -58,9 +68,17 @@ export class QuoteComponent implements OnInit {
 
     this.actionService.unlikeQuote(this.quote._id)
     .subscribe(
-      (quote) => {
+      (quote : any) => {
 
-        this.quote = quote;
+        this.data.quotes.forEach((q, index) =>{
+
+          if(q._id === quote._id){
+
+            this.data.quotes[index] = quote;
+
+          }
+
+        });
 
       },
       (error) => {
@@ -75,8 +93,18 @@ export class QuoteComponent implements OnInit {
 
     this.actionService.saveQuote(this.quote._id)
     .subscribe(
-      (quote) => {
-        this.quote = quote;
+      (quote : any) => {
+        
+        this.data.quotes.forEach((q, index) =>{
+
+          if(q._id === quote._id){
+
+            this.data.quotes[index] = quote;
+            
+          }
+
+        })
+
       },
       (error)=>{
 
@@ -89,8 +117,18 @@ export class QuoteComponent implements OnInit {
 
     this.actionService.unsaveQuote(this.quote._id)
     .subscribe(
-      (quote) => {
-        this.quote = quote;
+      (quote : any) => {
+
+        this.data.quotes.forEach((q, index) =>{
+
+          if(q._id === quote._id){
+
+            this.data.quotes[index] = quote;
+            
+          }
+
+        })
+
       },
       (error)=>{
 
@@ -139,6 +177,17 @@ export class QuoteComponent implements OnInit {
   closeEdit(){
 
     this.editmode = false;
+  }
+
+
+  openComments(){
+
+    this.bottomsheet.open(QuoteCommentsComponent,
+      {
+        data: { quoteId : this.quote._id },
+      }
+    );
+
   }
 
 }

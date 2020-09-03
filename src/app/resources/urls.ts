@@ -50,7 +50,7 @@ export const urls = {
 
         quotesrange : '/infinite/quotes/{starting-id}/{limit}',
 
-        commentsrange : '/infinite/comments/{starting-id}/{limit}'
+        commentsrange : '/infinite/comments/{quote-id}/{starting-id}/{limit}'
     },
 
     auth : {

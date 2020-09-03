@@ -15,6 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // MatChipInput import
 import {MatChipInputEvent} from '@angular/material/chips';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-quote-create',
@@ -69,7 +70,8 @@ export class QuoteCreateComponent implements OnInit {
     private formBuilder : FormBuilder, 
     private quoteService : QuoteService,
     private data : DataService,
-    private snackbar : MatSnackBar) { 
+    private snackbar : MatSnackBar,
+    private spinner : NgxSpinnerService) { 
 
     //creating reactive form
     this.createForm();
@@ -186,6 +188,8 @@ export class QuoteCreateComponent implements OnInit {
 
     const data = this.form.value;
 
+    this.spinner.show('quote-submit-loader');
+
     // logic to check if update or create
     if(this.quote){
 
@@ -194,6 +198,7 @@ export class QuoteCreateComponent implements OnInit {
 
         (quote) => {
 
+          this.spinner.hide('quote-submit-loader');
           this.quote = quote;
 
           this.data.quotes.forEach((element, index) => {
@@ -209,9 +214,9 @@ export class QuoteCreateComponent implements OnInit {
         },
         (error) => {
 
-          console.log(error);
-
+          this.spinner.hide('quote-submit-loader');
           this.snackbar.open('couldn\'t update quote', 'OK');
+
         }
       )
   
@@ -224,13 +229,15 @@ export class QuoteCreateComponent implements OnInit {
         (quote) => {
           
           this.data.insertQuotes([quote]);
+          this.spinner.hide('quote-submit-loader');
           this.snackbar.open('quote created succesfully', 'OK');
 
         },
         (error) => {
 
-          console.log(error);
+          this.spinner.hide('quote-submit-loader');
           this.snackbar.open('couldn\'t create quote', 'OK');
+          
         }
       )
 

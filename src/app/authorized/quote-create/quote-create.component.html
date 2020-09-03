@@ -88,6 +88,20 @@
             <!-- send container starts -->
             <div class="send">
 
+                <div class="loader pos-relative">
+
+                    <ngx-spinner
+                    bdColor="none"
+                    [fullScreen]="false"
+                    name="quote-submit-loader"
+                    size="small"
+                    color="#3f51b5"
+                    type="ball-clip-rotate">
+        
+                    </ngx-spinner>
+                    
+                </div>
+
                 <button class="send-button" [disabled]="form.invalid" mat-icon-button (click)="submit()">
                     <mat-icon class="send-icon">send</mat-icon>
                 </button>
