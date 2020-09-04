@@ -21,6 +21,36 @@
 
         </div>
 
+        <div *ngIf="processing" class="skeletons">
+            <div class="newsfeed-skeleton" *ngFor="let i of [1, 2, 3, 4, 5]">
+
+                <ngx-skeleton-loader class="profile-pic-skeleton" count="1" appearance="circle"></ngx-skeleton-loader>
+    
+                <ngx-skeleton-loader 
+                class="line-skeleton-one" 
+                count="1" 
+                appearance="line"
+                [theme]="{
+                    'display' : 'block', 
+                    'width' : '50%'
+                  }">
+                </ngx-skeleton-loader>
+                <ngx-skeleton-loader class="line-skeleton-two" count="1" appearance="line"></ngx-skeleton-loader>
+                <ngx-skeleton-loader 
+                class="line-skeleton-three" 
+                count="1" 
+                appearance="line"
+                [theme]="{
+                    'display' : 'block', 
+                    'width' : '70%'
+                  }">
+                </ngx-skeleton-loader>
+                <ngx-skeleton-loader class="line-skeleton-four" count="1" appearance="line"></ngx-skeleton-loader>
+    
+            </div>
+        </div>
+
+
         <!-- newsfeed starts -->
         <app-newsfeed *ngIf="data.quotes.length > 0" class="newsfeed" [quotes]="data.quotes" ></app-newsfeed>
         <!-- newsfeed ends -->

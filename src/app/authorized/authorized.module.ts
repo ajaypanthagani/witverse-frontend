@@ -8,6 +8,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // external service imports
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 // services imports
@@ -76,6 +77,7 @@ import { QuoteLikesComponent } from './quote-likes/quote-likes.component';
     FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
+    NgxSkeletonLoaderModule,
     InfiniteScrollModule
   ],
   providers : [

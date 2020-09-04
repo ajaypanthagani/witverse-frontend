@@ -26,6 +26,9 @@ import { AuthWatchInterceptor } from './services/auth.interceptor';
 // importing ngx spinner external module
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+//importing ngx skeleton external module
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 /*components imports*/
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './general/not-found/not-found.component';
@@ -44,7 +47,8 @@ import { NoNetworkComponent } from './general/no-network/no-network.component';
     AppRoutingModule,
     HttpClientModule,
     MatImportsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [
     ConnectionService,

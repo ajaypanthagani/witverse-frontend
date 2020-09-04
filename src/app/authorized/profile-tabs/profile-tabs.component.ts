@@ -18,6 +18,10 @@ export class ProfileTabsComponent implements OnInit {
   posts : any;
   saved : any;
 
+  //status variables
+  postsProcessing : boolean;
+  savedProcessing : boolean;
+
   constructor(
     private quoteService : QuoteService, 
     private actionService : ActionService,
@@ -28,17 +32,23 @@ export class ProfileTabsComponent implements OnInit {
 
         this.id = params.id;
 
+        this.postsProcessing = true;
+        this.savedProcessing = true;
+
         this.quoteService.getQuotesBy(this.id)
         .subscribe(
     
           (quotes : []) => {
     
             this.posts = quotes.reverse();
+            this.postsProcessing = false;
+
           },
           (error) => {
     
             this.openSB('couldn\'t fetch quotes', 'OK');
-    
+            this.postsProcessing = false;
+
           }
         );
     
@@ -48,10 +58,14 @@ export class ProfileTabsComponent implements OnInit {
           (quotes : []) => {
     
             this.saved = quotes.reverse();
+            this.savedProcessing = false;
+
           },
           (error) => {
     
             this.openSB('could\'nt load saved quotes', 'OK');
+            this.savedProcessing = false;
+
     
           }
         );

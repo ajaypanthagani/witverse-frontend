@@ -1,1 +1,40 @@
-<p>explore-grid works!</p>
+
+<div class="explore-wrapper">
+
+<div *ngIf="processing" class="explore-grid">
+
+        <ngx-skeleton-loader 
+        *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+        class="quote-skeleton explore-item"
+        count="1" 
+        appearance="line"
+        ></ngx-skeleton-loader>
+
+</div>
+
+<div *ngIf="!processing" class="explore-grid">
+
+    <div *ngFor="let quote of quotes" class="explore-item" (click)="openQuote(quote)">
+
+        <p class="quote-text">
+
+            {{quote.text}}
+
+        </p>
+
+        <div class="emotion">
+
+            <mat-icon class="emotion-icon">
+                {{quote.emotion === 'happy' ? 'sentiment_very_satisfied' : quote.emotion === 'sad' ? 'sentiment_very_dissatisfied' : 'sentiment_satisfied'}}
+            </mat-icon>
+
+            <p> <small *ngFor="let tag of quote.tags"> # {{tag}}</small> </p>
+
+        </div>
+        
+    </div>
+
+</div>
+
+</div>
+

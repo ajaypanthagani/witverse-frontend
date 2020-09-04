@@ -4,7 +4,7 @@
 
         <div mat-card-avatar class="user-display-image" [style.backgroundImage]="'url(' + url + user.displayImage +')'" [routerLink]="['/a/profile', user._id]"></div>
 
-        <!-- <mat-card-title class="username">{{user.username}}</mat-card-title> -->
+        <mat-card-title class="username">@{{user.username}}</mat-card-title>
         <mat-card-subtitle class="lastname">{{user.firstname}} {{user.lastname}}</mat-card-subtitle>
 
 

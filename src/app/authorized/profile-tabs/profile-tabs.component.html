@@ -5,12 +5,46 @@
         Posts
       </ng-template>
       <div class="content">
+
+
+        <div *ngIf="postsProcessing" class="posts-skeleton flex">
+          <!-- post skeleton ends -->
+          <div class="post-skeleton" *ngFor="let i of [1,2,3,4,5]">
+
+             <ngx-skeleton-loader class="profile-pic-skeleton" count="1" appearance="circle"></ngx-skeleton-loader>
+
+             <ngx-skeleton-loader 
+                class="line-skeleton-one" 
+                count="1" 
+                appearance="line"
+                [theme]="{
+                    'display' : 'block', 
+                    'width' : '50%'
+                  }">
+              </ngx-skeleton-loader>
+              <ngx-skeleton-loader class="line-skeleton-two" count="1" appearance="line"></ngx-skeleton-loader>
+              <ngx-skeleton-loader 
+              class="line-skeleton-three" 
+              count="1" 
+              appearance="line"
+              [theme]="{
+                  'display' : 'block', 
+                  'width' : '70%'
+                }">
+              </ngx-skeleton-loader>
+              <ngx-skeleton-loader class="line-skeleton-four" count="1" appearance="line"></ngx-skeleton-loader>
+          </div>
+          <!-- post skeleton ends -->
+        </div>
+
           <div class="posts flex">
+
             <div class="post-container"  *ngFor="let post of posts">
 
               <app-quote class="post" [quote]="post"></app-quote>
 
             </div>
+
           </div>
       </div>
     </mat-tab>
@@ -21,10 +55,42 @@
         Saved
       </ng-template>
       <div class="content">
+
+        <div *ngIf="savedProcessing" class="posts-skeleton flex">
+           <!-- post skeleton ends -->
+           <div class="post-skeleton" *ngFor="let i of [1,2,3,4,5]">
+
+              <ngx-skeleton-loader class="profile-pic-skeleton" count="1" appearance="circle"></ngx-skeleton-loader>
+
+              <ngx-skeleton-loader 
+              class="line-skeleton-one" 
+              count="1" 
+              appearance="line"
+              [theme]="{
+                  'display' : 'block', 
+                  'width' : '50%'
+                }">
+              </ngx-skeleton-loader>
+              <ngx-skeleton-loader class="line-skeleton-two" count="1" appearance="line"></ngx-skeleton-loader>
+              <ngx-skeleton-loader 
+              class="line-skeleton-three" 
+              count="1" 
+              appearance="line"
+              [theme]="{
+                  'display' : 'block', 
+                  'width' : '70%'
+                }">
+              </ngx-skeleton-loader>
+              <ngx-skeleton-loader class="line-skeleton-four" count="1" appearance="line"></ngx-skeleton-loader>
+          </div>
+          <!-- post skeleton ends -->
+        </div>
         <div class="posts flex">
+
           <div class="post-container" *ngFor="let save of saved">
             <app-quote class="post" [quote]="save"></app-quote>
           </div>
+
         </div>
     </div>
     </mat-tab>

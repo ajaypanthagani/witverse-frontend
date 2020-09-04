@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { ConnectionsService } from '../services/connections.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-followers',
@@ -15,14 +16,20 @@ export class FollowersComponent implements OnInit {
 
   followers : any;
 
+  //status variables
+  processing : boolean;
+
   constructor(
     private route : ActivatedRoute,
     private connections : ConnectionsService,
-    private locaction : Location) { 
+    private locaction : Location,
+    private snackbar : MatSnackBar) { 
 
     this.route.parent.params.subscribe(params => {
 
       this.id = params.id;
+
+      this.processing = true;
 
       this.connections.getFollowers(this.id)
       .subscribe(
@@ -30,11 +37,13 @@ export class FollowersComponent implements OnInit {
         (followers) => {
           
           this.followers = followers;
+          this.processing = false;
 
         },
         (error) => {
 
-          console.log(error);
+          this.snackbar.open('couldn\'t fetch followers', 'OK');
+          this.processing = false;
 
         }
       )

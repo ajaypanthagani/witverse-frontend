@@ -2,8 +2,40 @@
 
 
 <div class="profile-wrapper flex">
+
+    <div *ngIf="processing" class="profile-skeleton">
+
+        <ngx-skeleton-loader 
+        class="profile-pic-skeleton" 
+        count="1" 
+        appearance="circle"
+        [theme]="{
+            'width' : '100px',
+            'height' : '100px'
+        }"></ngx-skeleton-loader>
+        <ngx-skeleton-loader 
+        class="profile-pic-skeleton" 
+        count="1" 
+        appearance="line"
+        [theme]="{
+            'margin' : '5px',
+            'width' : '20%'
+        }"></ngx-skeleton-loader>
+        <ngx-skeleton-loader 
+        class="profile-pic-skeleton" 
+        count="1" 
+        appearance="line"
+        [theme]="{
+            'margin' : '5px',
+            'width' : '20%'
+        }"></ngx-skeleton-loader>
+
+        <ngx-skeleton-loader class="username-skeleton" count="1" appearance="line"></ngx-skeleton-loader>
+        <ngx-skeleton-loader class="fullname-skeleton" count="1" appearance="line"></ngx-skeleton-loader>
+
+    </div>
     
-    <div class="profile" *ngIf="user">
+    <div class="profile" *ngIf="user && !processing">
 
         <app-profile-card [user]="user" *ngIf="!user.isMe"></app-profile-card>
         <app-profile-card [user]="data.user" *ngIf="user.isMe"></app-profile-card>

@@ -4,13 +4,13 @@
     overflow-y: auto;
 }
 
-.posts{
+.posts, .posts-skeleton{
 
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.post-container{
+.post-container, .post-skeleton{
 
     width: 50%;
     padding: 10px;
@@ -18,7 +18,7 @@
 
 @media screen and (max-width : 741px){
 
-    .post-container{
+    .post-container, .post-skeleton{
 
         width: 100%;
         flex: 1 1 auto;

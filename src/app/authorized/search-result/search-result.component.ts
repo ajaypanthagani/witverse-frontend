@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 
+import { ActivatedRoute } from '@angular/router';
+import { SearchResultService } from '../services/search-result.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { switchMap } from 'rxjs/operators';
+
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
@@ -9,52 +15,68 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SearchResultComponent implements OnInit {
 
+  resource : any;
   users : any;
   quotes : any;
+  data : any;
 
   // status variables
   processing : boolean;
+  notfound : boolean;
 
-  // dummy data
+  constructor(
+    private spinner : NgxSpinnerService,
+    private route : ActivatedRoute,
+    private searchService : SearchResultService,
+    private snackbar : MatSnackBar) { 
 
-  // quotes = [
+      this.route.queryParams
+      .pipe(
 
-  //   {
+        switchMap(
+          
+          
+          (data) => {
 
-  //     _id : '000000000000000',
-  //     text : 'failure is the first step to success!',
-  //     tags : [
-  //       'happy',
-  //       'love',
-  //       'travel'
-  //     ],
-  //     emotion : 'happy',
-  //     author : {
+            this.data = data;
+            this.processing = true;
+            this.notfound = false;
+            return this.searchService.get(data.resource, data.query)
+          }
 
-  //       _id : '00000000000',
-  //       username : 'apanthagani',
-  //       firstname : 'Ajay',
-  //       lastname : 'Panthagani',
-  //       displayImage : 'https://picsum.photos/id/1001/367/267',
-  //       following : [],
-  //       followers : [],
-  //       createdAt : Date.now(),
-  //       updatedAt : Date.now(),
-  //       isFollowed : false
-  //   },
-  //     likes : [
+        )
 
-  //     ],
-  //     comments : [
-        
-  //     ],
-  //     isLiked : true,
-  //     isSaved : false
-  // }
+      )
+      .subscribe(
+        (results : []) => {
 
-  // ];
+          if(this.data.resource === 'users'){
 
-  constructor(private spinner : NgxSpinnerService) { }
+            this.users = results;
+
+          }
+          else{
+
+            this.quotes = results;
+
+          }
+
+          if(results.length <=0 ){
+
+            this.notfound = true;
+          }
+
+          this.processing = false;
+        },
+        (error) => {
+
+          this.snackbar.open('couldn\'t fetch search results', 'OK');
+          this.processing = false;
+
+        }
+      )
+    
+    }
 
   ngOnInit(): void {
 

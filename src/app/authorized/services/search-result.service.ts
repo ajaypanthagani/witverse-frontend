@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { urls } from '../../resources/urls';
+import { HttpClient } from '@angular/common/http';
 
-import { Subject } from 'rxjs';
+import { urls } from '../../resources/urls';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,8 @@ export class SearchResultService {
 
   get(resource, query){
 
-    this.http.get('')
+    const url = urls.base_url + '/search/' + ''+resource+'?searchFor='+query;
+    return this.http.get(url);
+
   }
 }

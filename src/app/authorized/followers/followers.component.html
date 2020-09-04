@@ -6,4 +6,13 @@
 
 <div class="gap"></div>
 
+<div *ngIf="processing" class="skeletons">
+
+    <div *ngFor="let i of [1, 2, 3, 4, 5]" class="connections-skeleton">
+        <ngx-skeleton-loader class="profile-pic-skeleton" count="1" appearance="circle"></ngx-skeleton-loader>
+        <ngx-skeleton-loader class="profile-pic-skeleton" count="1" appearance="line"></ngx-skeleton-loader>
+    </div>
+
+</div>
+
 <app-connections-list [users]="followers"></app-connections-list>

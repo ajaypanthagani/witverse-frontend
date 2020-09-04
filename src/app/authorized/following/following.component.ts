@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ConnectionsService } from '../services/connections.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-following',
@@ -14,14 +15,20 @@ export class FollowingComponent implements OnInit {
 
   following : any;
 
+  //status variables
+  processing : boolean;
+
   constructor(
     private route : ActivatedRoute,
     private connections : ConnectionsService,
-    private locaction : Location) { 
+    private locaction : Location,
+    private snackbar : MatSnackBar) { 
 
     this.route.parent.params.subscribe(params => {
 
       this.id = params.id;
+
+      this.processing = true;
 
       this.connections.getFollowing(this.id)
       .subscribe(
@@ -29,11 +36,13 @@ export class FollowingComponent implements OnInit {
         (following) => {
           
           this.following = following;
+          this.processing = false;
 
         },
         (error) => {
 
-          console.log(error);
+          this.snackbar.open('couldn\'t fetch following', 'OK');
+          this.processing = false;
 
         }
       )
