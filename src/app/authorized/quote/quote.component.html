@@ -115,5 +115,13 @@
                 <!-- save button ends -->
             </div>
         </mat-card-actions>
+        <mat-card-footer>
+            
+            <div class="stats-text">
+                <p class="liked-by-text" (click)="openLikes()"> liked by <strong>{{quote.likes.length}}</strong> users </p>
+                <p class="commented-by-text" (click)="openComments()">commented by <strong>{{quote.comments.length}}</strong> users</p>
+            </div>
+            
+        </mat-card-footer>
     </mat-card>
 </div>

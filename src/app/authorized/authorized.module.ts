@@ -46,6 +46,7 @@ import { DisplayImageSelectionComponent } from './display-image-selection/displa
 import { QuoteCommentsComponent } from './quote-comments/quote-comments.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentService } from './services/comment.service';
+import { QuoteLikesComponent } from './quote-likes/quote-likes.component';
 
 
 
@@ -66,7 +67,7 @@ import { CommentService } from './services/comment.service';
     SearchComponent, 
     SearchResultComponent, 
     ExploreGridComponent, 
-    SuggestionComponent, UserWellComponent, ProfileCardComponent, ConnectionsListComponent, FollowersComponent, FollowingComponent, ProfileTabsComponent, ProfileEditComponent, DisplayImageSelectionComponent, QuoteCommentsComponent, CommentComponent
+    SuggestionComponent, UserWellComponent, ProfileCardComponent, ConnectionsListComponent, FollowersComponent, FollowingComponent, ProfileTabsComponent, ProfileEditComponent, DisplayImageSelectionComponent, QuoteCommentsComponent, CommentComponent, QuoteLikesComponent
   ],
   imports: [
     CommonModule,

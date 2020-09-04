@@ -7,6 +7,7 @@ import { urls } from '../../resources/urls';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { QuoteCommentsComponent } from '../quote-comments/quote-comments.component';
+import { QuoteLikesComponent } from '../quote-likes/quote-likes.component';
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
@@ -55,6 +56,7 @@ export class QuoteComponent implements OnInit {
 
         })
 
+        this.quote = quote;
       },
       (error) => {
 
@@ -80,6 +82,7 @@ export class QuoteComponent implements OnInit {
 
         });
 
+        this.quote = quote;
       },
       (error) => {
 
@@ -105,6 +108,7 @@ export class QuoteComponent implements OnInit {
 
         })
 
+        this.quote = quote;
       },
       (error)=>{
 
@@ -129,6 +133,7 @@ export class QuoteComponent implements OnInit {
 
         })
 
+        this.quote = quote;
       },
       (error)=>{
 
@@ -183,6 +188,16 @@ export class QuoteComponent implements OnInit {
   openComments(){
 
     this.bottomsheet.open(QuoteCommentsComponent,
+      {
+        data: { quoteId : this.quote._id },
+      }
+    );
+
+  }
+
+  openLikes(){
+
+    this.bottomsheet.open(QuoteLikesComponent,
       {
         data: { quoteId : this.quote._id },
       }

@@ -8,6 +8,7 @@ import { StorageService } from '../../services/storage.service';
 import { DataService } from '../../services/data.service';
 
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -53,8 +54,8 @@ export class LoginComponent implements OnInit {
     private auth : AuthService, 
     private spinner : NgxSpinnerService,
     private storage : StorageService,
-    private data : DataService,
-    private router : Router) { }
+    private router : Router,
+    private snackbar : MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -132,7 +133,20 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
 
-          this.response.error = 'invalid username or password';
+          if(error.status === 401){
+
+            
+            this.response.error = 'invalid username or password';
+
+            this.snackbar.open(this.response.error, 'OK');
+
+          }
+          else{
+
+            this.response.error = error.message;
+            this.snackbar.open(this.response.error, 'OK');
+            
+          }
 
           this.spinner.hide("login-loader");
         }
