@@ -1,6 +1,6 @@
 export const urls = {
 
-    base_url : 'http://localhost:3000',
+    base_url : process.env.BASE_API_URL || 'https://witverse.azurewebsites.net',
 
     quotes : '/quotes',
 
