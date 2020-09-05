@@ -6,15 +6,19 @@
 
         <div class="stats flex">
 
-            <div class="follower-stats flex">
-                <h3>{{user.followers.length}}</h3>
-               <button mat-button routerLink="followers"><small>Followers</small></button>
-            </div>
-            <div class="following-stats flex">
-                <h3>{{user.following.length}}</h3>
-                <button mat-button routerLink="following"><small>Following</small></button>
-            </div>
+            <div class="stats-grouper flex">
 
+                <div class="follower-stats flex">
+                    <h3>{{user.followers.length}}</h3>
+                   <button mat-button routerLink="followers"><small>Followers</small></button>
+                </div>
+                <div class="following-stats flex">
+                    <h3>{{user.following.length}}</h3>
+                    <button mat-button routerLink="following"><small>Following</small></button>
+                </div>
+
+            </div>
+            
             <div class="follow-button flex" *ngIf="!user.isMe">
 
                 

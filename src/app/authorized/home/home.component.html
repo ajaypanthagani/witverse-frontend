@@ -55,6 +55,14 @@
         <app-newsfeed *ngIf="data.quotes.length > 0" class="newsfeed" [quotes]="data.quotes" ></app-newsfeed>
         <!-- newsfeed ends -->
 
+        <!-- no quotes element -->
+        <div [style.background]="'accent'" *ngIf="!processing && data.quotes.length === 0" class="no-posts">
+
+            <h2>Follow more users to get post updates.</h2>
+    
+        </div>
+        <!-- no quotes element -->
+
     </div>
     <!-- main section ends -->
 

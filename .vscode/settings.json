@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.deploySubpath": "dist\\witverse-angular",
+    "appService.defaultWebAppToDeploy": "/subscriptions/85edc073-644a-4749-a559-8bb07704d3ab/resourceGroups/witverse/providers/Microsoft.Web/sites/witverseapp"
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class SuggestionComponent implements OnInit {
   //status variables
   processing : boolean;
 
-  constructor( private userService : UserService ) { }
+  constructor( private userService : UserService, private ref : ChangeDetectorRef ) { }
 
   ngOnInit(): void {
 
@@ -25,6 +25,7 @@ export class SuggestionComponent implements OnInit {
 
         this.users = users;
         this.processing = false;
+        this.ref.markForCheck();
 
       },
       (error) => {

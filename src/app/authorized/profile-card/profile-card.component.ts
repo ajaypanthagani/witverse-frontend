@@ -8,6 +8,7 @@ import { urls } from '../../resources/urls';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { DisplayImageSelectionComponent } from '../display-image-selection/display-image-selection.component';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-profile-card',
@@ -30,7 +31,8 @@ export class ProfileCardComponent implements OnInit {
     private snackbar : MatSnackBar,
     private data : DataService,
     private auth : AuthService,
-    private dialog : MatDialog) { }
+    private dialog : MatDialog,
+    private userService : UserService) { }
 
   ngOnInit(): void {
 
@@ -101,15 +103,24 @@ export class ProfileCardComponent implements OnInit {
     this.user.followers = this.user.followers.filter((userId) => userId !== id);
   }
 
-  edit(){
-
-    console.log("edit");
-
-  }
-
   delete(){
 
-    console.log("delete");
+    this.userService.deleteOne(this.user._id)
+    .subscribe(
+
+      (res) => {
+
+        this.logout();
+
+        this.snackbar.open('profile deleted succesfully!', 'OK');
+
+      },
+      (error) => {
+
+        this.snackbar.open(error.message, 'OK');
+
+      }
+    )
     
   }
 

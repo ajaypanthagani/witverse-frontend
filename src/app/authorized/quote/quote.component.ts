@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { QuoteService } from '../services/quote.service';
 import { DataService } from '../../services/data.service';
 import { ActionService } from '../services/action.service';
+import {ClipboardModule, Clipboard} from '@angular/cdk/clipboard';
+
 
 import { urls } from '../../resources/urls';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -34,7 +36,8 @@ export class QuoteComponent implements OnInit {
     private actionService : ActionService,
     private data : DataService,
     private snackbar : MatSnackBar,
-    private bottomsheet : MatBottomSheet) { }
+    private bottomsheet : MatBottomSheet,
+    private clipboard : Clipboard) { }
 
   ngOnInit(): void {
 
@@ -166,7 +169,6 @@ export class QuoteComponent implements OnInit {
       },
       (error) => {
 
-        console.log(error);
         this.snackbar.open('couldn\'t delete the quote', 'OK');
 
       }
@@ -202,6 +204,16 @@ export class QuoteComponent implements OnInit {
         data: { quoteId : this.quote._id },
       }
     );
+
+  }
+
+  share(){
+
+
+    this.clipboard.copy(`${this.quote.text} -by ${this.quote.author.username} from witverse`);
+
+    this.snackbar.open('copied quote to clipboard', 'OK');
+
 
   }
 

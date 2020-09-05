@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~9.1.11",
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
+    "dotenv": "^8.2.0",
     "ngx-infinite-scroll": "^9.0.0",
     "ngx-skeleton-loader": "^2.4.4",
     "ngx-spinner": "^10.0.1",

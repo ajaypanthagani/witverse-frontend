@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 // mat imports module
@@ -48,7 +49,8 @@ import { NoNetworkComponent } from './general/no-network/no-network.component';
     HttpClientModule,
     MatImportsModule,
     NgxSpinnerModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    ClipboardModule
   ],
   providers: [
     ConnectionService,
