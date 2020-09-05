@@ -1,9 +1,10 @@
+<p class="disclaimer"><small>you agree to terms and conditions by registering.</small></p>
+
 <div class="register-wrapper flex">
 
     <div [class.mat-elevation-z2]="true" class="register">
 
         <h4>Register</h4>
-
         <form class="register-form" [formGroup]="form">
 
             <div class="loader pos-relative">
@@ -80,22 +81,22 @@
             </p>
 
             <p>
-                <mat-form-field class="password-form-field" appearance="outline">
-                    <mat-label>password</mat-label>
+                <mat-form-field class="email-form-field" appearance="outline">
+                    <mat-label>email</mat-label>
 
                     <!-- input field starts -->
                     <input 
-                        class="password-input-field" 
+                        class="email-input-field" 
                         matInput 
-                        placeholder="password" 
+                        placeholder="email" 
                         autocomplete="off" 
-                        formControlName="password"
-                        type="password">
+                        formControlName="email"
+                        type="email">
                     <!-- input field ends -->
 
-                    <mat-icon matSuffix>fingerprint</mat-icon>
-                    <mat-hint>enter password here</mat-hint>
-                    <mat-error *ngIf="form.invalid">{{errors.password}}</mat-error>
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-hint>enter email id</mat-hint>
+                    <mat-error *ngIf="form.invalid">{{errors.email}}</mat-error>
                 </mat-form-field>
             </p>
 
@@ -103,9 +104,8 @@
             <small class="success-message">{{response.message}}</small>
             <small class="error-message">{{response.error}}</small>
         </form>
-
         <button class="login-link" color="primary" mat-button routerLink="../login">click here to login</button>
-
     </div>
+
 
 </div>

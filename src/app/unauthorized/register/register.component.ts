@@ -3,9 +3,11 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 
 import { AuthService } from '../../services/auth.service';
 
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { NgxSpinnerService } from 'ngx-spinner'
+import { MatDialog } from '@angular/material/dialog';
+import { EmailConfirmationMessageComponent } from '../email-confirmation-message/email-confirmation-message.component';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,7 @@ export class RegisterComponent implements OnInit {
     'firstname' : '',
     'lastname' : '',
     'username' : '',
-    'password' : ''
+    'email' : ''
 
   };
 
@@ -39,12 +41,13 @@ export class RegisterComponent implements OnInit {
     'username': {
 
       'required': 'username is required.',
+      'pattern' : 'special characters or spaces are not allowed'
 
     },
-    'password': {
+    'email': {
 
-      'required': 'password is required',
-      'minlength' : 'password should be minimum 8 characters long'
+      'required': 'email is required',
+      'pattern' : 'please enter a valid email address'
 
     }
 
@@ -61,7 +64,8 @@ export class RegisterComponent implements OnInit {
     private fb : FormBuilder, 
     private auth : AuthService,
     private snackbar : MatSnackBar,
-    private spinner : NgxSpinnerService
+    private spinner : NgxSpinnerService,
+    private dialog : MatDialog
     ) { 
 
       this.createForm();
@@ -78,7 +82,7 @@ export class RegisterComponent implements OnInit {
       firstname : ['', [Validators.required]],
       lastname : ['', [Validators.required]],
       username : ['', [Validators.required]],
-      password : ['', [Validators.required, Validators.minLength(8)]]
+      email : ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]]
     })
 
     this.form.valueChanges
@@ -124,6 +128,7 @@ export class RegisterComponent implements OnInit {
 
           this.response.message = response.status;
 
+          this.dialog.open(EmailConfirmationMessageComponent);
           this.openSB(response.status + ' login to continue', 'OK');
 
           this.spinner.hide();

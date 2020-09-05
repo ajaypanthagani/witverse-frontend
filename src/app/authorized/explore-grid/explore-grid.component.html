@@ -27,8 +27,12 @@
             <mat-icon class="emotion-icon">
                 {{quote.emotion === 'happy' ? 'sentiment_very_satisfied' : quote.emotion === 'sad' ? 'sentiment_very_dissatisfied' : 'sentiment_satisfied'}}
             </mat-icon>
+            
+            <div class="tags-container">
 
-            <small *ngFor="let tag of quote.tags" class="tags"> #{{tag}} </small>
+                <small *ngFor="let tag of quote.tags" class="tags"> #{{tag}} </small>
+
+            </div>
 
         </div>
         

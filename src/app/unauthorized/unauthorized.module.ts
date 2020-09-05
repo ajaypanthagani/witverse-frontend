@@ -13,13 +13,16 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { EmailConfirmationMessageComponent } from './email-confirmation-message/email-confirmation-message.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { TermsComponent } from './terms/terms.component';
 
 
 
 @NgModule({
   declarations: [
     UnauthorizedComponent, 
-    NavbarComponent, LoginComponent, RegisterComponent
+    NavbarComponent, LoginComponent, RegisterComponent, EmailConfirmationMessageComponent, PrivacyComponent, TermsComponent
   ],
   imports: [
     CommonModule,
