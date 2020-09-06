@@ -2,6 +2,8 @@ export const urls = {
 
     base_url : 'https://witverse.azurewebsites.net',
 
+    // base_url : 'http://localhost:3000',
+
     quotes : '/quotes',
 
     quotesBy : '/quotes/by/{user-id}',

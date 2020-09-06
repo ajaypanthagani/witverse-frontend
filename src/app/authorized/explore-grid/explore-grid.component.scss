@@ -69,4 +69,16 @@
 
         width: 100%;
     }
+    .explore-grid{
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .explore-item:nth-child(4n+1) {
+        grid-column-end: auto;
+        grid-row-end: auto;
+        background-color: #c1f0ff;
+        color: #333;
+    }
 }
